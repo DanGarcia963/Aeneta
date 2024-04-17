@@ -61,13 +61,9 @@ $(document).ready(() => {
                                         <button class="btn btn-outline-primary editar"><i class="bi bi-pencil"></i></button>
                                         <button class="btn btn-outline-danger mx-2 eliminar"><i class="bi bi-trash3"></i></button>
                                     </th>
-                                    <td class="align-middle">${registro.boleta}</td>
-                                    <td class="align-middle">${registro.nombre}</td>
-                                    <td class="align-middle">${registro.apellidoP}</td>
-                                    <td class="align-middle">${registro.apellidoM}</td>
-                                    <td class="align-middle">${registro.fecha}</td>
-                                    <td class="align-middle">${registro.genero}</td>
-                                    <td class="align-middle">${registro.curp}</td>
+                                    <td class="align-middle">${registro.TrabajoTerminal}</td>
+                                    <td class="align-middle">${registro.NombresAlumnos}</td>
+                                    <td class="align-middle">${registro.NombresDirectores}</td>
                                 </tr>
                                 `
                 });
@@ -100,9 +96,9 @@ $(document).ready(() => {
                                             <button class="btn btn-outline-primary editar"><i class="bi bi-pencil"></i></button>
                                             <button class="btn btn-outline-danger mx-2 eliminar"><i class="bi bi-trash3"></i></button>
                                         </th>
-                                        <td class="align-middle">${registro.boleta}</td>
-                                        <td class="align-middle">${registro.nombre}</td>
-                                        <td class="align-middle">${registro.apellidoP}</td>
+                                        <td class="align-middle">${registro.TrabajoTerminal}</td>
+                                        <td class="align-middle">${registro.NombresAlumnos}</td>
+                                        <td class="align-middle">${registro.NombresDirectores}</td>
                                     </tr>
                                     `
                     });

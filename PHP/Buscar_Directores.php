@@ -7,11 +7,9 @@
 
         if(!empty($search)){
             $query = "SELECT 
-            mt.Nombre_TT AS 'Trabajo Terminal',
-            mt.Descripción AS 'Descripción TT',
-            CONCAT( d.Nombre_Director, ' ' 
-            ,d.Apellido_Paterno, ' '
-            ,d.Apellido_Materno) AS 'NombreDirector' 
+            mt.Nombre_TT AS 'Trabajo_Terminal',
+        GROUP_CONCAT(DISTINCT CONCAT(a.Nombres, ' ', a.Apellido_Paterno, ' ', a.Apellido_Materno) SEPARATOR ', ') AS 'Nombres_Alumnos',
+        GROUP_CONCAT(DISTINCT CONCAT(d.Nombre_Director, ' ', d.Apellido_Paterno, ' ', d.Apellido_Materno) SEPARATOR ', ') AS 'Nombres_Directores'
             FROM metodo_director md 
             INNER JOIN director d ON md.ID_Director = d.ID_Director 
             INNER JOIN metodo_titulacion mt ON md.ID_TT = mt.ID_TT 
@@ -25,11 +23,9 @@
             $json = array();
             while($row = mysqli_fetch_array($result)){
                 $json[] = array(
-                    "boleta" => $row["boleta"],
-                    "nombre" => $row["nombre"],
-                    "apellidoP" => $row["apellido_paterno"],
-                    "apellidoM" => $row["apellido_materno"],
-                    "laboratorio" => $row["laboratorio"]
+                    "TrabajoTerminal" => $row["Trabajo_Terminal"],
+                    "NombresAlumnos" => $row["Nombres_Alumnos"],
+                    "NombresDirectores" => $row["Nombres_Directores"]
                 );
             }
             $jsonstring = json_encode($json, JSON_UNESCAPED_UNICODE);
