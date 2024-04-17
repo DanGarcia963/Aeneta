@@ -69,7 +69,7 @@ $(document).ready(() => {
                 });
                 $('#registros').html(template);
                 $('#total_users').html(total);
-                $('#matches').html("Todos los Usuarios: ");
+                $('#matches').html("Todos los Trabajos Terminales: ");
             }
         });
     }
