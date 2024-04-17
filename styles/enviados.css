@@ -1,0 +1,83 @@
+body{
+    background-image: url(../img/escomplantel.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    background-attachment: fixed;
+}
+
+#first_message{
+    margin-bottom: 30px;
+}
+
+.inicio{
+    display: flex;
+    justify-content: center;
+}
+.barra{
+    width:100%;
+}
+.inicio_texto{
+    color: white;
+    width: fit-content;
+    text-align: center;
+    background-color: #0b7bea;
+    text-shadow: 1px 1px 5px black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.inicio_texto:hover{
+    background-color: #800040;
+    cursor: pointer;
+}
+#img_reg{
+    margin-bottom: 40px;
+}
+
+.recuadro{
+    background-color: rgb(255, 255, 255, 0.3);
+    /*
+    background-image: url(../img/sign_up.png);
+    background-repeat: no-repeat;
+    */
+    height: auto;
+    border-radius: 10px;
+    padding: 4%;
+    backdrop-filter: blur(2px);
+    margin-top: 7%;
+    margin-bottom: 7%;
+    text-align: center;
+}
+
+.letras{
+    color:rgb(255, 255, 255);
+    text-shadow: 1px 1px 5px black;
+}
+
+#seg_recuadro{
+    background-color: rgb(53, 53, 53, 0.9);
+    border-radius: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+#dia_horario{
+    color:rgb(32, 203, 255);
+}
+
+#num_lab{
+    color:rgb(32, 203, 255);
+}
+
+.form_pdf{
+    display: none;
+}
+
+#generar{
+    margin-top: 30px;
+}

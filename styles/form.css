@@ -1,0 +1,147 @@
+body{
+    background-image:url(../img/escomplantel.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    background-attachment: fixed;
+}
+
+.hdr{
+    display: flex;
+    align-items: center;
+}
+/**/
+.inicio{
+    display: flex;
+    justify-content: center;
+}
+.barra{
+    width:100%;
+}
+.inicio_texto{
+    color: white;
+    width: fit-content;
+    text-align: center;
+    background-color: #0b7bea;
+    text-shadow: 1px 1px 5px black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.inicio_texto:hover{
+    background-color: #800040;
+    cursor: pointer;
+}
+/**/
+h1{
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 5px black;
+}
+
+
+#fbtn{
+    margin-top: 15%;
+}
+
+.fields{
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    height: 650px;
+    padding: 4%;
+    backdrop-filter: blur(100px);
+    margin-bottom: 15%;
+    /*box-shadow: 1px 1px 5px black;*/
+}
+/* Media query para el título con los logos */
+@media only screen and (max-width: 992px){
+    .hdr_img{
+        margin: auto;
+        width: 30%;
+    }
+    .hdr{
+        margin: auto;
+        width: 30%;
+        font-size:1rem;
+    }
+
+    .fields{
+        height: auto;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+.fields_extendido{
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    height: auto;
+    padding: 4%;
+    backdrop-filter: blur(100px);
+    margin-bottom: 15%;
+}
+
+#disc_text{
+    color:white;
+    background-color: rgba(69, 68, 68, 0.6);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10%;
+}
+
+#prom_valid{
+    display: none; 
+    text-align: center; 
+    color: rgb(254, 69, 69);
+    text-shadow: 1px 1px 1px white;
+}
+
+legend{
+    color:#0b7bea;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label{
+    color:white;
+    text-shadow: 1px 1px 5px black;
+}
+
+.row_discapacidad{
+    margin-top: 15%;
+}
+
+#chk_valid{
+    text-align: center;
+    color: rgb(254, 69, 69);
+}
+
+/* Clases dependiendo las validaciones */
+
+.incorrecto{
+    border: 3px solid #ea0b0b;
+    background-color: #ff8484;
+    color:white;
+    border-radius: 4px;
+}
+
+.incorrecto::placeholder{
+    color: white;
+}
+
+.correcto{
+    border: 3px solid #0bea0b;
+    background-color: #ebf4ff;  
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+}
+
+.correcto::placeholder{
+    color: rgb(59, 59, 59);
+}

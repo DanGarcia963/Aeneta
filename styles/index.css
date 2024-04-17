@@ -1,0 +1,125 @@
+body {
+    background-image: url(../img/escomplantel.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+/* Básicamente la que contiene a todo */
+.present_card{
+    margin-top: 4%;
+}
+/* Titulo de bienvenido */
+#bienvenido{
+    color: white;
+    text-shadow: 1px 1px 5px black;
+    text-align: center;
+}
+#letras_adm{
+    color: #800040;
+    text-shadow: 1px 1px 3px white;
+}
+/* Media para imagenes porque si no quedan feas */
+@media only screen and (max-width: 992px){
+    .hdr_img{
+        margin: auto;
+        width: 30%;
+    }
+}
+
+/* Media para el texto de admin que no queda con Bootstrap */
+@media only screen and (max-width: 576px) and (min-width: 516px)  {
+    #adminbtn{
+        font-size: 0.7rem;
+    }
+}
+
+/* Solo el div de los botones */
+.buttons{
+    margin-top: 7%;
+    margin-bottom: 30%;
+}
+/* Estilos de botones generales */
+.botones{
+    color: white;
+    display: block;
+    width: auto;
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    padding: 10%;
+    text-align: center;
+    text-shadow: 1px 1px 5px black;
+}
+/* Estilos de botones individuales */
+.btnadm:hover, .btnpanel:hover{
+    background-color:#800040;
+    cursor: pointer;
+}
+.btnsalir:hover{
+    background-color:#e6a900;
+    cursor: pointer;
+}
+.btnreg:hover{
+    background-color:#0b7bea;
+    cursor: pointer;
+}
+.btnpdf:hover{
+    background-color:#4b4b4b;
+    cursor: pointer;
+}
+/* Quitar estilos a los links */
+a{
+    text-decoration: none;
+}
+a:link{
+    text-decoration: none;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+}
+
+.recupera{
+    display: flex;
+    justify-content: center;
+}
+
+#formulario{
+    color:white;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(53, 53, 53, 0.719);
+    margin-top: 7%;
+    margin-bottom: 24%;
+    padding: 5%;
+}
+
+#form_recupera{
+    color:white;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.448);
+    margin-top: 7%;
+    margin-bottom: 24%;
+    padding: 5%;
+}
+
+.lbl{
+    text-shadow: 1px 1px 3px black;
+}
+
+.err_cred{
+    color: red;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+}
+
+label{
+    display: flex;
+    align-items: center;
+}
+
+.flecha{
+    margin-right: 5px;
+}

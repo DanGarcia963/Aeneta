@@ -1,0 +1,150 @@
+body{
+    background-image: url(../img/escomplantel.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    background-attachment: fixed;
+}
+
+.inicio{
+    display: flex;
+    justify-content: center;
+}
+.barra{
+    width:100%;
+}
+.inicio_texto{
+    color: white;
+    width: fit-content;
+    text-align: center;
+    background-color: #0b7bea;
+    text-shadow: 1px 1px 5px black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.inicio_texto:hover{
+    background-color: #800040;
+    cursor: pointer;
+}
+
+#tablaa{
+    width: 100%;
+    padding-top:2%;
+    padding-bottom: 2%;
+}
+
+#tabla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hdr{
+    color:#0b7bea;
+    width: auto;
+    margin-bottom: 5%;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.edit_blanco{
+    background: url(../img/edit_gray.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    margin-top: 7px;
+    height: 25px;
+}
+
+.edit_blanco:hover{
+    background: url(../img/edit_white.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#datos{
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(100px);
+    margin-top:5%;
+    margin-bottom: 5%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    /*box-shadow: 1px 1px 5px black;*/
+}
+
+label{
+    color:white;
+    text-shadow: 1px 1px 5px black;
+    font-weight: bold;
+}
+
+.form_header{
+    color:rgb(57, 57, 57);
+    text-shadow: 1px 1px 3px white;
+}
+
+.rubros{
+    display: block;
+    color:white;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px black;
+    word-wrap: break-word;
+}
+
+#botones{
+    margin-top: 30px;
+}
+
+#prom_valid{
+    display: none;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(254, 69, 69);
+    text-shadow: 1px 1px 2px black;
+}
+
+/* estilos para input de tipo checkbox */
+.chk{
+    color:white;
+}
+/* Mensaje de error */
+#chk_valid{
+    text-align: center;
+    color: rgb(254, 69, 69);
+}
+
+#guardar{
+    margin-top: 30px;
+}
+
+/* Clases dependiendo las validaciones */
+.incorrecto{
+    border: 3px solid #ea0b0b;
+    background-color: #ff8484;
+    color:white;
+    border-radius: 4px;
+}
+
+.incorrecto::placeholder{
+    color: white;
+}
+
+.correcto{
+    border: 3px solid #0bea0b;
+    background-color: #ebf4ff;  
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+}
+
+.correcto::placeholder{
+    color: rgb(59, 59, 59);
+}
+

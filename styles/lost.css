@@ -1,0 +1,62 @@
+body{
+    background-image: url(../img/escomplantel.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    background-attachment: fixed;
+}
+
+#first_message{
+    margin-bottom: 30px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+#num_lab{
+    color:rgb(32, 203, 255);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+#num_lab:hover{
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+#img_reg{
+    margin-bottom: 40px;
+}
+
+#todo{
+    margin-top: 5%;
+}
+
+.recuadro{
+    background-color: rgb(255, 255, 255, 0.3);
+    /*
+    background-image: url(../img/sign_up.png);
+    background-repeat: no-repeat;
+    */
+    height: auto;
+    border-radius: 10px;
+    padding: 4%;
+    backdrop-filter: blur(2px);
+    margin-top: 7%;
+    margin-bottom: 7%;
+    text-align: center;
+}
+
+.letras{
+    color:rgb(255, 255, 255);
+    text-shadow: 1px 1px 5px black;
+}
+
+#seg_recuadro{
+    background-color: rgba(101, 101, 101, 0.57);
+    border-radius: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top:3%;
+    width: 60%;
+}

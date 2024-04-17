@@ -1,0 +1,145 @@
+body{
+    background-image: url(../img/escomplantel.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    background-attachment: fixed;
+}
+/* Estilos barra */
+.inicio{
+    display: flex;
+    justify-content: center;
+}
+.barra{
+    width:100%;
+}
+.inicio_texto{
+    color: white;
+    width: fit-content;
+    text-align: center;
+    background-color: #0b7bea;
+    text-shadow: 1px 1px 5px black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.inicio_texto:hover{
+    background-color: #800040;
+    cursor: pointer;
+}
+/* Estilos título e imágenes */
+.hdr{
+    display: flex;
+    align-items: center;
+}
+h1{
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 5px black;
+}
+/* Media query para el título con los logos */
+@media only screen and (max-width: 992px){
+    .hdr_img{
+        margin: auto;
+        width: 30%;
+    }
+    .hdr{
+        margin: auto;
+        width: 30%;
+        font-size:1rem;
+    }
+
+    .fields{
+        height: auto;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+.fields{
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    height: auto;
+    padding: 4%;
+    backdrop-filter: blur(2px);
+    margin-bottom: 15%;
+    /*box-shadow: 1px 1px 5px black;*/
+}
+
+#prom_valid{
+    display: none;
+    color:red;
+}
+
+#chk_valid{
+    color:red;
+    text-align: center;
+}
+
+#administrador{
+    color:#0b7bea;
+    font-size: 40px;
+    text-align: center;
+    height: 50px;
+    margin-bottom: 3%;
+    text-shadow: 1px 1px 30px white;
+}
+
+.barra_buscar{
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 3%;
+    height: 110px;
+    backdrop-filter: blur(2px);
+    margin-bottom: 3%;
+}
+
+#Tcabecera{
+    color: rgb(66, 66, 66);
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+table{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.editar_eliminar{
+    display: block;
+    width: 120px;
+    height: auto;
+}
+
+#AgrCabecera{
+    color:rgb(48, 48, 48);
+    text-align: center;
+    margin-bottom:4%;
+}
+
+#formulario{
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    height: auto;
+    padding: 4%;
+    backdrop-filter: blur(2px);
+    margin-bottom: 15%;
+    /*box-shadow: 1px 1px 5px black;*/
+}
+
+label{
+    display: flex;
+    align-items: center;
+}
+
+.contenido{
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 3%;
+    backdrop-filter: blur(2px);
+    margin-bottom: 3%;
+}
