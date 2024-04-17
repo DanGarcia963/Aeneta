@@ -1,47 +1,6 @@
 $(document).ready(() => {
-        $('.add').hide();
         $('#TablaRegistros').show();
-        $('#cancelar').hide();
 
-    $('.otra_discapacidad').hide();
-    $('.otra_escuela').hide();
-    
-    $('#agregar').click(function () {
-        $('#TablaRegistros').hide();
-        $('.add').show();
-        $('#cancelar').show();
-        $('#agregar').hide();
-        $('#curp').prop('disabled', false);
-        $('.barra_buscar').hide();
-    });
-
-    $('#cancelar').click(function () {
-        $('#TablaRegistros').show();
-        $('.add').hide();
-        $('#cancelar').hide();
-        $('#agregar').show();
-        $('.otra_discapacidad').hide();
-        $('.otra_escuela').hide();
-        $('.barra_buscar').show();
-        $('#search').val('');
-        listarTodas();
-    });
-
-    $('#discapacidad').change(function () {
-        if($('#discapacidad').val() == 6){
-            $('.otra_discapacidad').show();
-        }else{
-            $('.otra_discapacidad').hide();
-        }
-    });
-
-    $('#escuela').change(function () {
-        if($('#escuela').val() == 20){
-            $('.otra_escuela').show();
-        }else{
-            $('.otra_escuela').hide();
-        }
-    });
 
     listarTodas();
 
@@ -109,18 +68,4 @@ $(document).ready(() => {
             });
         }
     });
-
-    $(document).on('click', '.eliminar', function () {
-        let element = $(this)[0].parentElement.parentElement;
-        let curp = $(element).attr('ClaveCurp');
-        let nombre = $(element).attr('NombreAlumno');
-        let boleta = $(element).attr('BoletaAlumno');
-        if(confirm('Estas seguro de eliminar a ' + nombre + '\ncon Boleta = ' + boleta + ' ?')){
-            $.post('php/eliminar_registro.php', {curp}, function (response) {
-                alert(response);
-                listarTodas();
-            })
-        }
-    })
-
 });
