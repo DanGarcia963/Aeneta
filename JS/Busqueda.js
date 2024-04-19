@@ -1,5 +1,10 @@
+document.getElementById('opciones').addEventListener('change', function() {
+    const placeholder = this.options[this.selectedIndex].text.split(' ').slice(2).join(' ');
+    document.getElementById('search').placeholder = `Buscar por ${placeholder}`;
+});
 $(document).ready(() => {
         $('#TablaRegistros').show();
+        
 
 
     listarTodas();

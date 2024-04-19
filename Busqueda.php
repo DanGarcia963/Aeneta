@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
         <link type="text/css" rel="stylesheet" href="styles/admin.css">
-        <script src="js/jquery-3.7.1.js"></script>
+        <script src="JS/jquery-3.7.1.js"></script>
     </head>
     <body>
         <div class="inicio">
@@ -29,6 +29,16 @@
             <div class="row fields">
                 <div class="row justify-content-center" id="administrador">Busqueda</div>
                 <form class="form-inline justify-content-center barra_buscar">
+                <div class="col-lg-7 col-md-11 mt-1">
+                            <select class="form-control" name="opciones" id="opciones" required>
+                                <option selected>Seleccionar</option>
+                                <option value="1">Busqueda por nombre de Trabajo Terminal</option>
+                                <option value="2">Busqueda por Alumnos</option>
+                                <option value="3">Busqueda por Directores</option>
+                                <option value="4">Busqueda por tema de Trabajo terminal</option>
+                                <option value="5">Busquedan Avanzada</option>
+                            </select>
+                        </div>
                     <input class="form-control" type="search" id="search" name="search" placeholder="Buscar por nombre">
                     <!-- <button class="btn btn-primary" id="btnBuscar">Buscar</button> -->
                 </form>
@@ -48,15 +58,6 @@
                             </tr>
                         </thead>
                         <tbody id="registros">
-                            <!--
-                            <th scope="row" class="align-middle">
-                                <button class="btn btn-outline-primary"><i class="bi bi-pencil"></i></button>
-                                <button class="btn btn-outline-danger mx-2"><i class="bi bi-trash3"></i></button>
-                            </th>
-                            <td class="align-middle">Jose</td>
-                            <td class="align-middle">PECE23173921832</td>
-                            <td class="align-middle">55 1234 5678</td>
-                            -->
                         </tbody>
                     </table>
                 </div>
