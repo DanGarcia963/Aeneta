@@ -13,7 +13,7 @@
             LEFT JOIN metodo_director md ON mt.ID_TT = md.ID_TT
             LEFT JOIN director d ON md.ID_Director = d.ID_Director
             LEFT JOIN alumno a ON mt.ID_TT = a.ID_TT 
-            WHERE CONCAT(mt.Nombre_TT) LIKE '$search%'
+            WHERE mt.Nombre_TT LIKE '%$search%'
             GROUP BY mt.Nombre_TT"; /*consulta para la busqueda por nombre de TT*/ 
             $result = mysqli_query($conexion, $query);
 
@@ -35,5 +35,4 @@
     }else{
         header("Location: ../lost.html");
     }
-?>
 ?>

@@ -14,7 +14,7 @@
         LEFT JOIN metodo_director md ON mt.ID_TT = md.ID_TT
         LEFT JOIN director d ON md.ID_Director = d.ID_Director
         LEFT JOIN alumno a ON mt.ID_TT = a.ID_TT 
-        WHERE CONCAT(d.Nombre_Director, ' ' , d.Apellido_Paterno, ' ', d.Apellido_Materno) LIKE '$search%'
+        WHERE CONCAT(d.Nombre_Director, ' ' , d.Apellido_Paterno, ' ', d.Apellido_Materno) LIKE '%$search%'
         GROUP BY mt.Nombre_TT";
             $result = mysqli_query($conexion, $query);
 

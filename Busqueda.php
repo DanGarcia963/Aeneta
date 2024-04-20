@@ -27,7 +27,7 @@
             <div class="row fields">
                 <div class="row justify-content-center" id="administrador">Busqueda</div>
                 <form class="form-inline justify-content-center barra_buscar">
-                <div class="col-lg-7 col-md-11 mt-1">
+                <div class="col-lg-8 col-md-12 mt-2">
                             <select class="form-control" name="opciones" id="opciones" required>
                                 <option selected>Seleccionar</option>
                                 <option value="1">Busqueda por nombre de Trabajo Terminal</option>
