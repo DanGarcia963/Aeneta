@@ -36,7 +36,7 @@
                                 <option value="2">Busqueda por Alumnos</option>
                                 <option value="3">Busqueda por Directores</option>
                                 <option value="4">Busqueda por tema de Trabajo terminal</option>
-                                <option value="5">Busquedan Avanzada</option>
+                                <option value="5">Busqueda Avanzada</option>
                             </select>
                         </div>
                     <input class="form-control" type="search" id="search" name="search" placeholder="Buscar por nombre">
