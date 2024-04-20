@@ -82,7 +82,7 @@ $(document).ready(() => {
         let total = 0;
         if($("#search").val()){
             $.ajax({
-                url: 'PHP/buscar_Directores.php', /*Cambiar nombre */
+                url: 'PHP/Buscar_Nombre.php', /*Cambiar nombre */
                 type: 'POST',
                 data: {search},
                 success: function(response){
