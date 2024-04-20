@@ -1,8 +1,6 @@
 <?php
     session_start();
-    if($_SESSION["usuario"] != "root"){
-        header("Location: lost.html");
-    }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
