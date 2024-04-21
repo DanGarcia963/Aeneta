@@ -1,0 +1,89 @@
+<!--     \\\     -->
+<!--      (o>    -->
+<!--   \\_//)    -->
+<!--    \_/_)    -->
+<!--      _|_    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Cuenta</title>
+  <link href="./../libs/materialize/css/materialize.min.css" rel="stylesheet">
+  <link href="./../css/flex.css" rel="stylesheet">
+  <script src="./../libs/jquery-3.7.1.min.js"></script>
+  <script src="./../libs/materialize/js/materialize.min.js"></script>
+  <script src="./../libs/justValidate_min.js"></script>
+  <script src="./../libs/sweetAlert_min.js"></script>
+  <script src="./../js/crearCuenta.js"></script>
+</head>
+<body>
+  <header>
+    <!--
+        <img src="./../img/header.jpg" class="responsive-img">
+    -->
+  </header>
+  <main class="valign-wrapper">
+    <div class="container">
+      <div class="row">
+        <h3>Crear cuenta:</h3>
+      </div>
+      <form id="formCrearCuenta" autocomplete="off">
+        <div class="row">
+          <div class="col s12 m6 input-field">
+            <label for="boleta">Boleta:</label>
+            <input type="number" id="boleta" name="boleta">
+          </div>
+          <div class="col s12 m6 input-field">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6 input-field">
+            <label for="primerApe">Primer Apellido</label>
+            <input type="text" id="primerApe" name="primerApe">
+          </div>
+          <div class="col s12 m6 input-field">
+            <label for="segundoApe">Segundo Apellido</label>
+            <input type="text" id="segundoApe" name="segundoApe">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6 input-field">
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" name="correo">
+          </div>
+          <div class="col s12 m6 input-field">
+            <label for="CURP">CURP</label>
+            <input type="text" id="CURP" name="CURP">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6 input-field">
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" name="contrasena">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6 input-field">
+            <a href="./../" class="btn orange" style="width:100%;">Cancelar</a>
+          </div>
+          <div class="col s12 m6 input-field">
+            <button type="submit" class="btn blue" style="width:100%;">Crear cuenta</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer class="page-footer blue">
+    <div class="footer-copyright">
+      <div class="container">
+      © 2024 Ingenieria de software 
+      <a class="grey-text text-lighten-4 right" href="https://escom.ipn.mx">escom.ipn.mx</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

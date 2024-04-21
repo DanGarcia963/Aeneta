@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alumno` (
-  `ID_Alumno` int(11) NOT NULL,
+  `ID_Alumno` INT AUTO_INCREMENT PRIMARY KEY,
   `Nombres` varchar(40) NOT NULL,
   `Apellido_Paterno` varchar(30) NOT NULL,
   `Apellido_Materno` varchar(30) NOT NULL,
   `CURP` varchar(18) NOT NULL,
-  `Boleta` varchar(10) NOT NULL,
+  `boleta` varchar(10) NOT NULL,
   `Correo` varchar(50) NOT NULL,
   `ID_TT` int(11) NOT NULL,
   `Contrasena` varchar(15) NOT NULL,
