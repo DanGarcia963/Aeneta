@@ -16,11 +16,11 @@ function listarTodas(){
             registros.forEach(registro => {
                 total++;
                 template += `
-                            <tr>
-                                <th scope="row" class="align-middle editar_eliminar">                                   
-                                    <button class="btn btn-outline-primary editar"><i class="bi bi-book"></i></button>
-                                    <button class="btn btn-outline-primary editar"><i class="bi bi-check-circle "></i></button>
-                                    <button class="btn btn-outline-primary editar"><i class="bi bi-x-circle"></i></button>
+                <tr IdTT="${registro.ID_Terminal}">
+                                <th scope="row" class="align-middle editar_eliminar_visualizar">                                   
+                                    <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>
+                                    <button class="btn btn-outline-primary aceptar"><i class="bi bi-check-circle "></i></button>
+                                    <button class="btn btn-outline-primary rechazar"><i class="bi bi-x-circle"></i></button>
                                 </th>
                                 <td class="align-middle">${registro.TrabajoTerminal}</td>
                                 <td class="align-middle">${registro.NombresAlumnos}</td>
@@ -36,4 +36,39 @@ function listarTodas(){
         }
     });
 }
+
+$(document).on('click', '.aceptar', function () {
+    let element = $(this)[0].parentElement.parentElement;
+    let IDTT = $(element).attr('IdTT');
+
+        $.ajax({
+            url: 'PHP/Modificar_Aceptar.php',
+            type: 'POST',
+            data: {IDTT},
+            success: function(response){
+                console.log("Registro modificado correctamente");
+            }
+        });
+})
+
+$(document).on('click', '.rechazar', function () {
+    let element = $(this)[0].parentElement.parentElement;
+    let curp = $(element).attr('NombreTT');
+
+    $.post('php/Modificar_Rechazar.php', {curp}, function (response) {
+        let registro = JSON.parse(response);
+        
+})
+});
+
+$(document).on('click', '.visualizar', function () {
+    let element = $(this)[0].parentElement.parentElement;
+    let curp = $(element).attr('NombreTT');
+
+    $.post('php/Visualizar.php', {curp}, function (response) {
+        let registro = JSON.parse(response);
+        
+})
+});
+
 });

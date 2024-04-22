@@ -1,7 +1,9 @@
 <?php
         include("conexion.php");
 
-            $query = "SELECT mt.Nombre_TT AS 'Trabajo_Terminal',
+            $query = "SELECT 
+            mt.ID_TT AS 'ID_Trabajo_Terminal'
+            mt.Nombre_TT AS 'Trabajo_Terminal',
             GROUP_CONCAT(DISTINCT CONCAT(a.Nombres, ' ', a.Apellido_Paterno, ' ', a.Apellido_Materno) SEPARATOR ', ') AS 'Nombres_Alumnos',
             GROUP_CONCAT(DISTINCT CONCAT(d.Nombre_Director, ' ', d.Apellido_Paterno, ' ', d.Apellido_Materno) SEPARATOR ', ') AS 'Nombres_Directores',
             tt.Nombre_Tipo_Titulacion AS 'Tipo_Titulacion',
@@ -26,6 +28,7 @@
 
         while($row = mysqli_fetch_array($result)){
             $json[] = array(
+                "ID_Terminal" => $row["ID_Trabajo_Terminal"],
                 "TrabajoTerminal" => $row["Trabajo_Terminal"],
                 "NombresAlumnos" => $row["Nombres_Alumnos"],
                 "NombresDirectores" => $row["Nombres_Directores"],
