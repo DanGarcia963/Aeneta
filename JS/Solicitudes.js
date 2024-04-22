@@ -47,19 +47,28 @@ $(document).on('click', '.aceptar', function () {
             data: {IDTT},
             success: function(response){
                 console.log("Registro modificado correctamente");
+
+                    window.location.reload();
+                
             }
         });
 })
 
 $(document).on('click', '.rechazar', function () {
     let element = $(this)[0].parentElement.parentElement;
-    let curp = $(element).attr('NombreTT');
+    let IDTT = $(element).attr('IdTT');
 
-    $.post('php/Modificar_Rechazar.php', {curp}, function (response) {
-        let registro = JSON.parse(response);
-        
+        $.ajax({
+            url: 'PHP/Modificar_Rechazar.php',
+            type: 'POST',
+            data: {IDTT},
+            success: function(response){
+                console.log("Registro modificado correctamente");
+                    window.location.reload();
+                
+            }
+        });
 })
-});
 
 $(document).on('click', '.visualizar', function () {
     let element = $(this)[0].parentElement.parentElement;

@@ -2,7 +2,7 @@
         include("conexion.php");
 
             $query = "SELECT 
-            mt.ID_TT AS 'ID_Trabajo_Terminal'
+            mt.ID_TT AS 'ID_Trabajo_Terminal',
             mt.Nombre_TT AS 'Trabajo_Terminal',
             GROUP_CONCAT(DISTINCT CONCAT(a.Nombres, ' ', a.Apellido_Paterno, ' ', a.Apellido_Materno) SEPARATOR ', ') AS 'Nombres_Alumnos',
             GROUP_CONCAT(DISTINCT CONCAT(d.Nombre_Director, ' ', d.Apellido_Paterno, ' ', d.Apellido_Materno) SEPARATOR ', ') AS 'Nombres_Directores',
