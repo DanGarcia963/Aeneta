@@ -18,8 +18,8 @@
             LEFT JOIN area ar ON mt.ID_Area = ar.ID_Area
             LEFT JOIN tipo_titulacion tt ON mt.ID_Tipo_Titulacion = tt.ID_Tipo_Titulacion
             LEFT JOIN estado_titulacion et ON mt.ID_Estado = et.ID_Estado
-            WHERE mt.Nombre_Tipo_Titulacion LIKE '%$search%'
-            GROUP BY mt.Nombre_Tipo_Titulacion"; /*consulta para la busqueda por tipo de TT*/ 
+            WHERE tt.Nombre_Tipo_Titulacion LIKE '%$search%'
+            GROUP BY tt.Nombre_Tipo_Titulacion"; /*consulta para la busqueda por tipo de TT*/ 
             $result = mysqli_query($conexion, $query);
 
             if(!$result){
