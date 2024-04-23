@@ -11,15 +11,13 @@
             GROUP_CONCAT(DISTINCT CONCAT(d.Nombre_Director, ' ', d.Apellido_Paterno, ' ', d.Apellido_Materno) SEPARATOR ', ') AS 'Nombres_Directores',
             tt.Nombre_Tipo_Titulacion AS 'Tipo_Titulacion',
             ar.Nombre_Area AS 'Area'
-            FROM metodo_titulacion mt
-            LEFT JOIN metodo_director md ON mt.ID_TT = md.ID_TT
-            LEFT JOIN director d ON md.ID_Director = d.ID_Director
-            LEFT JOIN alumno a ON mt.ID_TT = a.ID_TT
-            LEFT JOIN area ar ON mt.ID_Area = ar.ID_Area
+            FROM metodo_titulacion mt 
+            LEFT JOIN alumno a ON mt.ID_TT = a.ID_TT 
+            LEFT JOIN area ar ON mt.ID_Area = ar.ID_Area 
+            LEFT JOIN director d ON mt.ID_Area = d.ID_Area 
             LEFT JOIN tipo_titulacion tt ON mt.ID_Tipo_Titulacion = tt.ID_Tipo_Titulacion
-            LEFT JOIN estado_titulacion et ON mt.ID_Estado = et.ID_Estado
-            WHERE tt.Nombre_Tipo_Titulacion LIKE '%$search%'
-            GROUP BY tt.Nombre_Tipo_Titulacion"; /*consulta para la busqueda por tipo de TT*/ 
+            WHERE ar.Nombre_Area LIKE '%$search%'
+            GROUP BY ar.Nombre_Area"; /*consulta para la busqueda por area de TT*/ 
             $result = mysqli_query($conexion, $query);
 
             if(!$result){
