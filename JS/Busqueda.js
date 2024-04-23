@@ -22,12 +22,13 @@ $(document).ready(() => {
                     template += `
                                 <tr>
                                     <th scope="row" class="align-middle editar_eliminar">
-                                        <button class="btn btn-outline-primary editar"><i class="bi bi-pencil"></i></button>
-                                        <button class="btn btn-outline-danger mx-2 eliminar"><i class="bi bi-trash3"></i></button>
+                                    <button class="btn btn-outline-primary editar"><i class="bi bi-book"></i></button>
                                     </th>
                                     <td class="align-middle">${registro.TrabajoTerminal}</td>
                                     <td class="align-middle">${registro.NombresAlumnos}</td>
                                     <td class="align-middle">${registro.NombresDirectores}</td>
+                                    <td class="align-middle">${registro.TipoTitulacion}</td>
+                                    <td class="align-middle">${registro.AreaTT}</td>
                                 </tr>
                                 `
                 });
@@ -38,16 +39,18 @@ $(document).ready(() => {
         });
     }
 
-
-
-
-    
-
         // Evento change para el select
         $('#opciones').change(function() {
             // Obtener el valor seleccionado
             let opcionSeleccionada = $(this).val();
-
+            if(opcionSeleccionada == "" || opcionSeleccionada == null || opcionSeleccionada == "Seleccionar")
+            {
+                listarTodas();
+                $('#search').prop('disabled', true);
+            }
+            else{
+            $('#search').prop('disabled', false);
+            }
             $('#search').off('keyup'); // Elimina todos los eventos keyup asociados al campo de búsqueda
 
             // Ejecutar la función correspondiente según la opción seleccionada
@@ -74,12 +77,13 @@ $(document).ready(() => {
                                             template += `
                                                         <tr>
                                                             <th scope="row" class="align-middle editar_eliminar">
-                                                                <button class="btn btn-outline-primary editar"><i class="bi bi-pencil"></i></button>
-                                                                <button class="btn btn-outline-danger mx-2 eliminar"><i class="bi bi-trash3"></i></button>
+                                                                <button class="btn btn-outline-primary editar"><i class="bi bi-book"></i></button>
                                                             </th>
                                                             <td class="align-middle">${registro.TrabajoTerminal}</td>
                                                             <td class="align-middle">${registro.NombresAlumnos}</td>
                                                             <td class="align-middle">${registro.NombresDirectores}</td>
+                                                            <td class="align-middle">${registro.TipoTitulacion}</td>
+                                                            <td class="align-middle">${registro.AreaTT}</td>
                                                         </tr>
                                                         `
                                         });
@@ -117,12 +121,13 @@ $(document).ready(() => {
                                         template += `
                                                     <tr>
                                                         <th scope="row" class="align-middle editar_eliminar">
-                                                            <button class="btn btn-outline-primary editar"><i class="bi bi-pencil"></i></button>
-                                                            <button class="btn btn-outline-danger mx-2 eliminar"><i class="bi bi-trash3"></i></button>
+                                                        <button class="btn btn-outline-primary editar"><i class="bi bi-book"></i></button>
                                                         </th>
                                                         <td class="align-middle">${registro.TrabajoTerminal}</td>
                                                         <td class="align-middle">${registro.NombresAlumnos}</td>
                                                         <td class="align-middle">${registro.NombresDirectores}</td>
+                                                        <td class="align-middle">${registro.TipoTitulacion}</td>
+                                                        <td class="align-middle">${registro.AreaTT}</td>
                                                     </tr>
                                                     `
                                     });
@@ -156,12 +161,13 @@ $(document).ready(() => {
                                             template += `
                                                         <tr>
                                                             <th scope="row" class="align-middle editar_eliminar">
-                                                                <button class="btn btn-outline-primary editar"><i class="bi bi-pencil"></i></button>
-                                                                <button class="btn btn-outline-danger mx-2 eliminar"><i class="bi bi-trash3"></i></button>
+                                                            <button class="btn btn-outline-primary editar"><i class="bi bi-book"></i></button>
                                                             </th>
                                                             <td class="align-middle">${registro.TrabajoTerminal}</td>
                                                             <td class="align-middle">${registro.NombresAlumnos}</td>
                                                             <td class="align-middle">${registro.NombresDirectores}</td>
+                                                            <td class="align-middle">${registro.TipoTitulacion}</td>
+                                                            <td class="align-middle">${registro.AreaTT}</td>
                                                         </tr>
                                                         `
                                         });

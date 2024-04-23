@@ -17,7 +17,7 @@ function listarTodas(){
                 total++;
                 template += `
                 <tr IdTT="${registro.ID_Terminal}">
-                                <th scope="row" class="align-middle editar_eliminar_visualizar">                                   
+                                <th scope="row" class="align-middle editar_eliminar">                                   
                                     <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>
                                     <button class="btn btn-outline-primary aceptar"><i class="bi bi-check-circle "></i></button>
                                     <button class="btn btn-outline-primary rechazar"><i class="bi bi-x-circle"></i></button>
@@ -78,6 +78,23 @@ $(document).on('click', '.visualizar', function () {
         let registro = JSON.parse(response);
         
 })
+});
+ 
+$('#opciones').change(function() {
+    // Obtener el valor seleccionado
+    let opcionSeleccionada = $(this).val();
+    // Ejecutar la función correspondiente según la opción seleccionada
+    switch(opcionSeleccionada) {
+        case "1":
+        break;
+
+        case"2":
+        break;
+        // Puedes agregar más casos según las opciones del select
+        default:
+            // Si ninguna opción coincide, puedes hacer algo aquí
+            break;
+    }
 });
 
 });

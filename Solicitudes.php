@@ -26,15 +26,20 @@
             </div>
             <div class="row fields">
                 <div class="row justify-content-center" id="administrador">Solicitudes</div>
-                <div class="row contenido justify-content-center" id="TablaRegistros">
+                    <div class="form-inline justify-content-center barra_buscar">
+                        <div class="col-lg-8 col-md-12 mt-2">
+                                <select class="form-control" name="opciones" id="opciones" required>
+                                    <option selected>Seleccionar</option>
+                                    <option value="1">Solicitudes Rechazadas</option>
+                                    <option value="2">Solicitudes Aceptadas</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="row contenido justify-content-center" id="TablaRegistros">
                     <h3 id="Tcabecera"><u id="matches"></u><span id="total_users"></span></h3>
                     <table class="table">
                         <thead>
                             <tr>
-                                <!--
-                                <td><button><i class="bi bi-gear"></i></button></td>
-                                <td><button><i class="bi bi-trash3"></i></button></td>
-                                -->
                                 <th scope="col" style=" width: 120px;"></th>
                                 <th scope="col">Trabajo Terminal</th>
                                 <th scope="col">Nombre Alumnos</th>
