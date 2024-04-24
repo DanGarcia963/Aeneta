@@ -37,7 +37,7 @@
                                 <option value="5">Busqueda Avanzada</option>
                             </select>
                         </div>
-                    <input class="form-control" type="search" id="search" name="search" placeholder="Buscar por nombre">
+                    <input class="form-control" type="search" id="search" name="search" placeholder="Buscar por">
                     <!-- <button class="btn btn-primary" id="btnBuscar">Buscar</button> -->
                 </form>
                 <div class="row contenido justify-content-center" id="TablaRegistros">

@@ -6,10 +6,12 @@ $(document).ready(() => {
         $('#TablaRegistros').show();
         
 
-
+    $('#search').prop('disabled', true);
     listarTodas();
 
     function listarTodas(){
+        //$('#search').prop('disabled', true);
+        //$('#search').val("");
         $.ajax({
             url : 'PHP/Enlistar_Todo.php',
             type : 'GET',
@@ -43,13 +45,12 @@ $(document).ready(() => {
         $('#opciones').change(function() {
             // Obtener el valor seleccionado
             let opcionSeleccionada = $(this).val();
-            if(opcionSeleccionada == "" || opcionSeleccionada == null || opcionSeleccionada == "Seleccionar")
-            {
+            if (opcionSeleccionada == "" || opcionSeleccionada == null || opcionSeleccionada == "Seleccionar") {
                 listarTodas();
                 $('#search').prop('disabled', true);
-            }
-            else{
-            $('#search').prop('disabled', false);
+                $('#search').val("");
+            } else {
+                $('#search').prop('disabled', false);
             }
             $('#search').off('keyup'); // Elimina todos los eventos keyup asociados al campo de búsqueda
 

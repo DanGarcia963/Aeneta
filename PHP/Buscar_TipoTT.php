@@ -17,7 +17,7 @@
             LEFT JOIN director d ON mt.ID_Area = d.ID_Area 
             LEFT JOIN tipo_titulacion tt ON mt.ID_Tipo_Titulacion = tt.ID_Tipo_Titulacion
             WHERE ar.Nombre_Area LIKE '%$search%'
-            GROUP BY ar.Nombre_Area"; /*consulta para la busqueda por area de TT*/ 
+            GROUP BY mt.Nombre_TT"; /*consulta para la busqueda por area de TT*/ 
             $result = mysqli_query($conexion, $query);
 
             if(!$result){
