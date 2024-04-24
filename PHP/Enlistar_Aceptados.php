@@ -15,6 +15,7 @@
             LEFT JOIN area ar ON mt.ID_Area = ar.ID_Area
             LEFT JOIN tipo_titulacion tt ON mt.ID_Tipo_Titulacion = tt.ID_Tipo_Titulacion
             LEFT JOIN estado_titulacion et ON mt.ID_Estado = et.ID_Estado
+            WHERE et.Nombre_Estado = 'Aceptado'
             GROUP BY mt.ID_TT";
 
         $result = mysqli_query($conexion, $query);

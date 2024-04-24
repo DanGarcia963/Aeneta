@@ -3,9 +3,19 @@ document.getElementById('opciones').addEventListener('change', function() {
     document.getElementById('search').placeholder = `Buscar por ${placeholder}`;
 });
 $(document).ready(() => {
+        $('.add').hide();
         $('#TablaRegistros').show();
-        
-
+        $('#cancelar').hide();
+    
+        $('#cancelar').click(function () {
+            $('#TablaRegistros').show();
+            $('.add').hide();
+            $('#cancelar').hide();
+            $('.barra_buscar').show();
+            $('#search').val('');
+            //$('#search').prop('disabled', true);
+            listarTodas();
+        });
     $('#search').prop('disabled', true);
     listarTodas();
 
@@ -22,9 +32,9 @@ $(document).ready(() => {
                 registros.forEach(registro => {
                     total++;
                     template += `
-                                <tr>
+                                <tr IdTT="${registro.ID_Terminal}">
                                     <th scope="row" class="align-middle editar_eliminar">
-                                    <button class="btn btn-outline-primary editar"><i class="bi bi-book"></i></button>
+                                    <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>
                                     </th>
                                     <td class="align-middle">${registro.TrabajoTerminal}</td>
                                     <td class="align-middle">${registro.NombresAlumnos}</td>
@@ -40,6 +50,33 @@ $(document).ready(() => {
             }
         });
     }
+
+    $(document).on('click', '.visualizar', function () {
+        $('#TablaRegistros').hide();
+        $('.add').show();
+        $('#cancelar').show();
+        //$('#agregar').hide();
+        //$('#curp').prop('disabled', false);
+        $('.barra_buscar').hide();
+        let element = $(this)[0].parentElement.parentElement;
+        let IDTT = $(element).attr('IdTT');
+    
+        $.post('PHP/Visualizar.php', {IDTT}, function (response) {
+            let registro = JSON.parse(response);
+            $('#nombreTT').val(registro.TrabajoTerminal);
+            $('#descripcion').val(registro.Description);
+            $('#alumnos').val(registro.NombresAlumnos);
+            $('#directores').val(registro.NombresDirectores);
+            $('#TipoTitulacion').val(registro.TipoTitulacion);
+            $('#area').val(registro.AreaTT);
+            $('#nombreTT').prop('disabled', true);
+            $('#descripcion').prop('disabled', true);
+            $('#alumnos').prop('disabled', true);
+            $('#directores').prop('disabled', true);
+            $('#TipoTitulacion').prop('disabled', true);
+            $('#area').prop('disabled', true);
+    })
+    });
 
         // Evento change para el select
         $('#opciones').change(function() {
@@ -76,9 +113,9 @@ $(document).ready(() => {
                                         registros.forEach(registro => {
                                             total++;
                                             template += `
-                                                        <tr>
+                                                        <tr IdTT="${registro.ID_Terminal}">
                                                             <th scope="row" class="align-middle editar_eliminar">
-                                                                <button class="btn btn-outline-primary editar"><i class="bi bi-book"></i></button>
+                                                                <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>
                                                             </th>
                                                             <td class="align-middle">${registro.TrabajoTerminal}</td>
                                                             <td class="align-middle">${registro.NombresAlumnos}</td>
@@ -120,9 +157,9 @@ $(document).ready(() => {
                                     registros.forEach(registro => {
                                         total++;
                                         template += `
-                                                    <tr>
+                                                    <tr IdTT="${registro.ID_Terminal}">
                                                         <th scope="row" class="align-middle editar_eliminar">
-                                                        <button class="btn btn-outline-primary editar"><i class="bi bi-book"></i></button>
+                                                        <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>
                                                         </th>
                                                         <td class="align-middle">${registro.TrabajoTerminal}</td>
                                                         <td class="align-middle">${registro.NombresAlumnos}</td>
@@ -160,9 +197,9 @@ $(document).ready(() => {
                                         registros.forEach(registro => {
                                             total++;
                                             template += `
-                                                        <tr>
+                                                        <tr IdTT="${registro.ID_Terminal}">
                                                             <th scope="row" class="align-middle editar_eliminar">
-                                                            <button class="btn btn-outline-primary editar"><i class="bi bi-book"></i></button>
+                                                            <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>
                                                             </th>
                                                             <td class="align-middle">${registro.TrabajoTerminal}</td>
                                                             <td class="align-middle">${registro.NombresAlumnos}</td>
