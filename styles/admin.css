@@ -121,6 +121,10 @@ table{
     margin-bottom:4%;
 }
 
+textarea {
+    resize: none; /* Evita que el textarea sea redimensionable */
+}
+
 #formulario{
     background-color: rgb(255, 255, 255, 0.3);
     border-radius: 10px;

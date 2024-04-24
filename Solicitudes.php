@@ -60,38 +60,39 @@
                 <div class="row justify-content-center">
                     <h3 class="add" id="AgrCabecera">Visualizar</h3>
                     <form class="row col-lg-6 col-md-8 col-sm-8 justify-content-center add" id="formulario" method="post" novalidate>
-                        
-                        <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="nombreTT">Nombre de Trabajo Terminal:</label>
-                        <div class="col-lg-8 col-md-12 col-sm-12 mt-2">
-                            <input class="form-control" type="text" name="nombreTT" id="nombreTT" placeholder="Nombre Trabajo Terminal" required>
-                        </div>
 
-                        <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="descripcion">Descripción:</label>
-                        <div class="col-lg-8 col-md-12 mt-2">
-                            <input class="form-control" type="text" name="descripcion" id="descripcion" placeholder="Descripción" required>
-                        </div>
-                        
-                        <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="alumnos">Alumnos:</label>
-                        <div class="col-lg-8 col-md-12 mt-2">
-                            <input class="form-control" type="text" name="alumnos" id="alumnos" placeholder="Alumnos" required>
-                        </div>
-                        
-                        <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="directores">Directores:</label>
-                        <div class="col-lg-8 col-md-12 mt-2">
-                            <input class="form-control" type="text" name="directores" id="directores" placeholder="Directores" required>
-                        </div>
-                        
-                        <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="TipoTitulacion">Tipo de Titulación:</label>
-                        <div class="col-lg-8 col-md-12 mt-2">
-                            <input class="form-control" type="text" name="TipoTitulacion" id="TipoTitulacion" placeholder="Tipo de Titulacion" required>
-                        </div>
+                    <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="nombreTT">Nombre de Trabajo Terminal:</label>
+                    <div class="col-lg-8 col-md-12 col-sm-12 mt-2">
+                        <textarea class="form-control" type="text" name="nombreTT" id="nombreTT" placeholder="Nombre Trabajo Terminal" rows="3" cols="50"required></textarea>
+                    </div>
 
-                        <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="area">Area de Estudio:</label>
-                        <div class="col-lg-8 col-md-12 mt-2">
-                            <input class="form-control" type="text" name="area" id="area" placeholder="Area de Estudio" required>
-                        </div>
-                        
-                    </form>
+                    <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="descripcion">Descripción:</label>
+                    <div class="col-lg-8 col-md-12 mt-2">
+                        <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Descripción" rows="8" cols="50" maxlength="200" required></textarea>
+                    </div>
+                    
+                    <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="alumnos">Alumnos:</label>
+                    <div class="col-lg-8 col-md-12 mt-2">
+                        <textarea class="form-control" name="alumnos" id="alumnos" placeholder="Alumnos" rows="4" cols="50" required></textarea>
+                    </div>
+                    
+                    <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="directores">Directores:</label>
+                    <div class="col-lg-8 col-md-12 mt-2">
+                        <textarea class="form-control" name="directores" id="directores" placeholder="Directores" rows="4" cols="50" required ></textarea>
+                    </div>
+                    
+                    <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="TipoTitulacion">Tipo de Titulación:</label>
+                    <div class="col-lg-8 col-md-12 mt-2">
+                        <input class="form-control" type="text" name="TipoTitulacion" id="TipoTitulacion" placeholder="Tipo de Titulacion" required>
+                    </div>
+
+                    <label class="col-lg-4 col-md-12 col-sm-12 mt-2" for="area">Area de Estudio:</label>
+                    <div class="col-lg-8 col-md-12 mt-2">
+                        <input class="form-control" type="text" name="area" id="area" placeholder="Area de Estudio" required>
+                    </div>
+                    
+                </form>
+
                 </div>
             </div>
         </div>
