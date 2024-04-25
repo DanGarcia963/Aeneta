@@ -135,7 +135,42 @@ $(document).ready(() => {
                     break;
 
                     case"2":
-
+                    $('#search').keyup(function(){
+                        if($('#search').val() == ""){
+                            listarTodas();
+                        }
+                        let search = $('#search').val();
+                        let total = 0;
+                        if($("#search").val()){
+                            $.ajax({
+                                url: 'PHP/Buscar_NombreAlumno.php',
+                                type: 'POST',
+                                data: {search},
+                                success: function(response){
+                                    let registros = JSON.parse(response);
+                                    let template = '';
+                                    registros.forEach(registro => {
+                                        total++;
+                                        template += `
+                                                    <tr IdTT="${registro.ID_Terminal}">
+                                                        <th scope="row" class="align-middle editar_eliminar">
+                                                            <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>
+                                                        </th>
+                                                        <td class="align-middle">${registro.TrabajoTerminal}</td>
+                                                        <td class="align-middle">${registro.NombresAlumnos}</td>
+                                                        <td class="align-middle">${registro.NombresDirectores}</td>
+                                                        <td class="align-middle">${registro.TipoTitulacion}</td>
+                                                        <td class="align-middle">${registro.AreaTT}</td>
+                                                    </tr>
+                                                    `
+                                    });
+                                    $('#registros').html(template);
+                                    $('#total_users').html(total);
+                                    $('#matches').html("Coincidencias: ");
+                                }
+                            });
+                        }
+                    });
                     break;
 
                 case "3":
@@ -178,7 +213,7 @@ $(document).ready(() => {
                     });
                     break;
 
-                    case 4:
+                    case "4":
                         //Busqueda por Tipo de Trabajo Terminal
                         $('#search').keyup(function(){
                             if($('#search').val() == ""){

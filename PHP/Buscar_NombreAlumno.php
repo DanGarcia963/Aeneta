@@ -1,5 +1,4 @@
 <?php
-
     if(isset($_POST["search"])){
         include("conexion.php");
 
@@ -13,13 +12,15 @@
             GROUP_CONCAT(DISTINCT CONCAT(d.Nombre_Director, ' ', d.Apellido_Paterno, ' ', d.Apellido_Materno) SEPARATOR ', ') AS 'Nombres_Directores',
             tt.Nombre_Tipo_Titulacion AS 'Tipo_Titulacion',
             ar.Nombre_Area AS 'Area'
-            FROM metodo_titulacion mt 
-            LEFT JOIN alumno a ON mt.ID_TT = a.ID_TT 
-            LEFT JOIN area ar ON mt.ID_Area = ar.ID_Area 
-            LEFT JOIN director d ON mt.ID_Area = d.ID_Area 
+            FROM metodo_titulacion mt
+            LEFT JOIN metodo_director md ON mt.ID_TT = md.ID_TT
+            LEFT JOIN director d ON md.ID_Director = d.ID_Director
+            LEFT JOIN alumno a ON mt.ID_TT = a.ID_TT
+            LEFT JOIN area ar ON mt.ID_Area = ar.ID_Area
             LEFT JOIN tipo_titulacion tt ON mt.ID_Tipo_Titulacion = tt.ID_Tipo_Titulacion
-            WHERE ar.Nombre_Area LIKE '%$search%'
-            GROUP BY mt.Nombre_TT"; 
+            LEFT JOIN estado_titulacion et ON mt.ID_Estado = et.ID_Estado
+            WHERE CONCAT(a.Nombres, ' ' , a.Apellido_Paterno, ' ', a.Apellido_Materno) LIKE '%$search%'
+            GROUP BY mt.Nombre_TT";
             $result = mysqli_query($conexion, $query);
 
             if(!$result){
