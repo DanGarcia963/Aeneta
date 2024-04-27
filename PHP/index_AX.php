@@ -5,9 +5,9 @@
 
   $respAX = [];
   $boleta = $_REQUEST["boleta"];
-  $contrasena = md5($_REQUEST["contrasena"]);
+  $contrasena = $_REQUEST["contrasena"];
 
-  $sqlGetAlumno = "SELECT * FROM alumno WHERE boleta = '$boleta' AND contrasena = '$contrasena'";
+  $sqlGetAlumno = "SELECT * FROM alumno WHERE Boleta = '$boleta' AND Contrasena = '$contrasena'";
   $resGetAlumno = mysqli_query($conexion, $sqlGetAlumno);
   if(mysqli_num_rows($resGetAlumno) == 1){
     $_SESSION["boleta"] = $boleta;
@@ -19,7 +19,7 @@
   }else{
     $respAX["cod"] = 0;
     $respAX["msj"] = "Error. Boleta o contraseña incorrecta. Favor de intentarlo nuevamente";
-    $respAX["icono"] = "success";
+    $respAX["icono"] = "error";
     $respAX["log"] = date("d-m-Y H:i");
   }
 

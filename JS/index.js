@@ -1,9 +1,3 @@
-//     \\\     -->
-//      (o>    -->
-//   \\_//)    -->
-//    \_/_)    -->
-//      _|_    -->
-
 $(document).ready(()=>{
     const validarFormLogin = new JustValidate("#formLogin",{
       tooltip: {
@@ -44,7 +38,7 @@ $(document).ready(()=>{
     .onSuccess((evt)=>{
       evt.preventDefault();
       $.ajax({
-        url:"./php/index_AX.php",
+        url:"../PHP/login/index_AX.php",
         method:"post",
         data:$("#formLogin").serialize(),
         cacahe:false,

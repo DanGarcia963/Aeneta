@@ -1,9 +1,3 @@
-//     \\\     -->
-//      (o>    -->
-//   \\_//)    -->
-//    \_/_)    -->
-//      _|_    -->
-
 $(document).ready(()=>{
     const validarCrearCuenta = new JustValidate("#formCrearCuenta",{
       tooltip: {
@@ -89,7 +83,7 @@ $(document).ready(()=>{
     .onSuccess((evt)=>{
       evt.preventDefault();
       $.ajax({
-        url:"./../php/crearCuenta_AX.php",
+        url:"./../PHP/crearCuenta_AX.php",
         method:"post",
         data:$("#formCrearCuenta").serialize(),
         cache:false,
