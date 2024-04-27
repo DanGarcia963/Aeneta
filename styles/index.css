@@ -51,7 +51,7 @@ body {
     text-shadow: 1px 1px 5px black;
 }
 /* Estilos de botones individuales */
-.btnadm:hover, .btnpanel:hover{
+.btnadm:hover, .btnpanel:hover, .Solicitudes:hover{
     background-color:#800040;
     cursor: pointer;
 }
@@ -122,4 +122,9 @@ label{
 
 .flecha{
     margin-right: 5px;
+}
+
+#recuperation{
+    bottom: 330px;
+    color: #65B2C6;
 }
