@@ -1,8 +1,10 @@
 <?php
     session_start();
-    if(isset($_SESSION["usuario"])){}else{
+    if(isset($_SESSION["usuario"]) || isset($_SESSION["TT"])){}else{
         $_SESSION["usuario"] = "invitado";
     }
+    $ID_Alumno = $_SESSION["usuario"];
+    echo "<script>console.log('$ID_Alumno');</script>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -71,15 +73,20 @@
                         <a class="botones Solicitudes" href="Solicitudes.php">Administrar Solicitudes</a>
                         </div>
                 <?php
-                    } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado"){
+                    } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] != NULL){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones Solicitudes" href="GestionSolicitud.php">Gestionar Solicitudes</a>
+                        <a class="botones GesSolicitudes" href="GestionSolicitud.php">Gestionar Solicitud</a>
+                        </div>
+                <?php
+                    }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == NULL){
+                ?>
+                <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <a class="botones Solicitudes" href="RegistrarSolicitud.php">Registrar Solicitud</a>
                         </div>
                 <?php
                     }
                 ?>
-                
             </div>
         </div>
         <div class="row logg justify-content-center">

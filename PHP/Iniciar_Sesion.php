@@ -7,12 +7,12 @@
     else{
         $correo = $_POST["correo"];
         $contra = $_POST["contra"];
-            $query = "SELECT ID_Alumno AS 'IDAlumno' FROM alumno WHERE Correo = '$correo' AND Contrasena ='$contra' "; 
+            $query = "SELECT ID_Alumno AS 'IDAlumno', ID_TT AS 'IDTrabajoTerminal' FROM alumno WHERE Correo = '$correo' AND Contrasena ='$contra'"; 
             $result = mysqli_query($conexion, $query);
             if(mysqli_num_rows($result) > 0){
                 $row = mysqli_fetch_assoc($result);
                 $_SESSION["usuario"] = $row["IDAlumno"];
-                
+                $_SESSION["TT"]=$row["IDTrabajoTerminal"];
                 $json = array();
                 
                 do {

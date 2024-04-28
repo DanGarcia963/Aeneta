@@ -3,6 +3,8 @@
     if($_SESSION["usuario"] == "invitado"){
         header("Location: lost.html");
     }
+    $ID_Alumno = $_SESSION["usuario"];
+    echo "<script>console.log('$ID_Alumno');</script>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,6 +19,7 @@
         <script src="JS/jquery-3.7.1.js"></script>
     </head>
     <body>
+        <div id="session-data" data-nombre="<?php echo $ID_Alumno; ?>"></div>
         <div class="inicio">
             <a href="index.php" style="width: 100%;"><h4 style="width: 100%;" class="col-12 inicio_texto">Inicio</h4></a>
         </div>
