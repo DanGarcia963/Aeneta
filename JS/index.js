@@ -35,7 +35,7 @@ $(document).ready(() => {
     // Click en Recuperar y se mandan datos a la generación del PDF
     $('#login').click(() => {
         if ($('#correo').val() === 'root' && $('#contra').val() === 'root') {
-            $.post('php/sesiones.php', {usuario : 'root'}, function (response) {
+            $.post('PHP/sesiones.php', {usuario : 'root'}, function (response) {
                 alert(response);
                 window.location.href = 'index.php';
             })

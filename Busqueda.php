@@ -98,7 +98,7 @@
                         <input class="form-control" type="text" name="area" id="area" placeholder="Area de Estudio" required>
                     </div>
                     
-                </form>
+                    </form>
                 </div>
             </div>
         </div>

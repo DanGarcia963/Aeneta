@@ -1,9 +1,9 @@
 <?php
     include("conexion.php");
 
-    $IDUsuario = $_POST["IDUsuario"];
+    $IDTT = $_POST["IDTT"];
 
-    if(!empty($IDUsuario)){
+    if(!empty($IDTT)){
         $query = "SELECT 
         mt.Nombre_TT AS 'Trabajo_Terminal',
         mt.Descripción AS 'Descripcion',
@@ -18,7 +18,7 @@
         LEFT JOIN area ar ON mt.ID_Area = ar.ID_Area
         LEFT JOIN tipo_titulacion tt ON mt.ID_Tipo_Titulacion = tt.ID_Tipo_Titulacion
         LEFT JOIN estado_titulacion et ON mt.ID_Estado = et.ID_Estado
-        WHERE a.ID_Alumno = '$IDUsuario'
+        WHERE mt.ID_TT = '$IDTT'
         GROUP BY mt.ID_TT";
         $result = mysqli_query($conexion, $query);
 

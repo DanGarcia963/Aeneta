@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles/index.css">
-    <script src="js/jquery-3.7.1.js"></script>
-    <script src="js/index.js"></script>
+    <script src="JS/jquery-3.7.1.js"></script>
+    <script src="JS/index.js"></script>
 </head>
 <body>
     <div class="container justify-content-center">
@@ -73,16 +73,19 @@
                         <a class="botones Solicitudes" href="Solicitudes.php">Administrar Solicitudes</a>
                         </div>
                 <?php
-                    } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] != NULL){
+                    } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "SI"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones GesSolicitudes" href="GestionSolicitud.php">Gestionar Solicitud</a>
+                        <a class="botones Solicitudes" href="GestionSolicitud.php">Gestionar Solicitud</a>
                         </div>
                 <?php
-                    }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == NULL){
+                    }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "NO"){
                 ?>
                 <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones Solicitudes" href="RegistrarSolicitud.php">Registrar Solicitud</a>
+                        </div>
+                <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <a class="botones Solicitudes" href="RegistrarSolicitudExistente.php">Registrar Solicitud Existente</a>
                         </div>
                 <?php
                     }
@@ -115,26 +118,6 @@
                     <button class="col-lg-5 col-md-5 col-sm-12 mt-3 btn btn-primary" type="button" id="login">Iniciar Sesión</button>
                     <div class="col"></div>
                     <button class="col-ld-5 col-md-5 col-sm-12 mt-3 btn btn-outline-light back" type="button"><i class="bi bi-arrow-left-circle flecha"></i> Regresar</button>
-                </form>
-
-                
-                <form class="row col-8 justify-content-center" id="form_recupera" method="post" target="_blank" action="recupera.php" novalidate>
-                    <div class="row usuario_row">
-                        <label class="col-lg-4 col-md-6 col-sm-12 lbl" for="boleta">Boleta: </label>
-                        <div class="col-lg-8 col-md-6 col-sm-12">
-                            <input class="form-control" type="text" id="boleta" name="boleta" placeholder="Boleta" required>
-                        </div>
-                    </div>
-
-                    <div class="row contra_row mt-4 mb-3">
-                        <label class="col-lg-4 col-md-6 col-sm-12 lbl" for="curp">CURP: </label>
-                        <div class="col-lg-8 col-md-6 col-sm-12">
-                            <input class="form-control" type="text" id="curp" name="curp" placeholder="CURP" required>
-                        </div>
-                    </div>
-                    <button class="col-lg-5 col-md-5 col-sm-12 mt-3 btn btn-success" type="submit" id="recuperar">Recuperar PDF</button>
-                    <div class="col"></div>
-                    <button class="col-ld-5 col-md-5 col-sm-12 mt-3 btn btn-dark back" type="button"><i class="bi bi-arrow-left-circle flecha"></i> Regresar</button>
                 </form>
             </div>
         </div>

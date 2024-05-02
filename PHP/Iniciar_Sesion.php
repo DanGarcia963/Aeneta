@@ -12,7 +12,14 @@
             if(mysqli_num_rows($result) > 0){
                 $row = mysqli_fetch_assoc($result);
                 $_SESSION["usuario"] = $row["IDAlumno"];
-                $_SESSION["TT"]=$row["IDTrabajoTerminal"];
+                if($row["IDTrabajoTerminal"])
+                {
+                    $_SESSION["TT"]="SI";
+                }
+                else
+                {
+                    $_SESSION["TT"]="NO";
+                }
                 $json = array();
                 
                 do {
