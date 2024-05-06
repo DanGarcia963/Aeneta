@@ -18,7 +18,6 @@ $(document).ready(() => {
         });
     $('#search').prop('disabled', true);
     listarTodas();
-
     function listarTodas(){
         //$('#search').prop('disabled', true);
         //$('#search').val("");
@@ -50,7 +49,6 @@ $(document).ready(() => {
             }
         });
     }
-
     $(document).on('click', '.visualizar', function () {
         $('#TablaRegistros').hide();
         $('.add').show();
@@ -77,7 +75,6 @@ $(document).ready(() => {
             $('#area').prop('disabled', true);
     })
     });
-
         // Evento change para el select
         $('#opciones').change(function() {
             // Obtener el valor seleccionado
@@ -90,7 +87,6 @@ $(document).ready(() => {
                 $('#search').prop('disabled', false);
             }
             $('#search').off('keyup'); // Elimina todos los eventos keyup asociados al campo de búsqueda
-
             // Ejecutar la función correspondiente según la opción seleccionada
             switch(opcionSeleccionada) {
                 case "1":
@@ -135,6 +131,7 @@ $(document).ready(() => {
                     break;
 
                     case"2":
+
                     $('#search').keyup(function(){
                         if($('#search').val() == ""){
                             listarTodas();
@@ -252,7 +249,6 @@ $(document).ready(() => {
                             }
                         });
                         break;
-
                 // Puedes agregar más casos según las opciones del select
                 default:
                     // Si ninguna opción coincide, puedes hacer algo aquí

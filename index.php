@@ -2,9 +2,12 @@
     session_start();
     if(isset($_SESSION["usuario"]) || isset($_SESSION["TT"])){}else{
         $_SESSION["usuario"] = "invitado";
+        $_SESSION["TT"] = "NO_DIRECTOR";
     }
-    $ID_Alumno = $_SESSION["usuario"];
+    $ID_Director = isset($_SESSION["TT"]) ? $_SESSION["TT"] : "NO_DIRECTOR";
+    $ID_Alumno = isset($_SESSION["usuario"]) ? $_SESSION["usuario"] : "invitado";
     echo "<script>console.log('$ID_Alumno');</script>";
+    echo "<script>console.log('$ID_Director');</script>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -39,14 +42,12 @@
         </div>
         <div class="row buttons justify-content-center">
             <div class="row col-8 justify-content-center">
-                <?php
-                    if($_SESSION["usuario"] == "root" || $_SESSION["usuario"] != "invitado"){
-                ?>        
+       
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones btnpanel" href="Busqueda.php">Panel de Busqueda</a>
                         </div>
                 <?php
-                    }else{
+                    if($_SESSION["usuario"] == "invitado"){
                 ?>
                     <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones btnadm" id="adminbtn">Iniciar Sesión</a>
@@ -61,7 +62,7 @@
                             <a class="botones btnsalir">Cerrar Sesión</a>
                         </div>
                 <?php
-                    }else{
+                    }else if($_SESSION["usuario"] == "invitado"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones btnreg" href="form.html">Registrarse</a>
@@ -69,6 +70,9 @@
                 <?php
                     }if($_SESSION["usuario"] == "root"){
                 ?>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <a class="botones btnreg" href="form.html">Registrar Alumno</a>
+                        </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones Solicitudes" href="Solicitudes.php">Administrar Solicitudes</a>
                         </div>
@@ -78,6 +82,9 @@
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones Solicitudes" href="GestionSolicitud.php">Gestionar Solicitud</a>
                         </div>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <a class="botones Solicitudes" href="archivos.php">Adjuntar Archivos</a>
+                        </div>
                 <?php
                     }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "NO"){
                 ?>
@@ -86,6 +93,12 @@
                         </div>
                 <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones Solicitudes" href="RegistrarSolicitudExistente.php">Registrar Solicitud Existente</a>
+                        </div>
+                <?php
+                    }else if($_SESSION["TT"] == "Director" && $_SESSION["usuario"] != "invitado"){
+                ?>
+                <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <a class="botones Solicitudes" href="RevisarTT.php">Revisar Trabajos Terminales</a>
                         </div>
                 <?php
                     }

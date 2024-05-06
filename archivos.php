@@ -1,5 +1,8 @@
 <?php
-
+    session_start();
+    if($_SESSION["usuario"] == "root" || $_SESSION["usuario"] == "invitado"){
+        header("Location: lost.html");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,27 +23,15 @@
         <div class="container">
             <div class="row titulo">   
                 <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/escom.png" alt="ESCOM" class="col-2">
-                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Panel de Busqueda</h1></div>
+                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Panel de Archivos</h1></div>
                 <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/Logo.png" alt="IPN" class="col-2">
             </div>
             <div class="row fields">
-                <div class="row justify-content-center" id="administrador">Busqueda</div>
-                <form class="row justify-content-center barra_buscar">                  
-                                <select class="row justify-content-center" name="opciones" id="opciones" required>
-                                    <option selected>Seleccionar</option>
-                                    <option value="1">Busqueda por nombre de Trabajo Terminal</option>
-                                    <option value="2">Busqueda por Alumnos</option>
-                                    <option value="3">Busqueda por Directores</option>
-                                    <option value="4">Busqueda por tema de Trabajo terminal</option>
-                                    <option value="5">Busqueda Avanzada</option>
-                                </select>
-                        <input class="row justify-content-center" type="search" id="search" name="search" placeholder="Buscar por">
-                        </form>
-                <div class="row justify-content-center">
-                    <button type="button" class="col col-6 mb-5 btn btn-danger" name="cancelar" id="cancelar">
-                        <i class="bi bi-x-lg mx-2"></i> Cancelar
-                    </button>
-                </div>
+                <div class="row  justify-content-center" id="administrador">Archivos</div>
+                    <form enctype="multipart/form-data" class="row justify-content-center" method="post" action="PHP/insertarArchivo.php">
+                    <input class="col-lg-8 col-md-12 mt-2 contenido" type="file" name="archivo" size="30" accept=".pdf,.sql,.js,.php,.zip" required onchange="validateFileType(this)">
+                    <input class="col-lg-8 col-md-12 mt-2 contenido botones btn btn-primary" type="submit" id="submit" name="submit" value="Subir archivo">
+                    </form>
                 <div class="row contenido justify-content-center" id="TablaRegistros">
                     <h3 id="Tcabecera"><u id="matches"></u><span id="total_users"></span></h3>
                     <table class="table">
@@ -48,10 +39,8 @@
                             <tr>
                                 <th scope="col" style=" width: 120px;"></th>
                                 <th scope="col">Trabajo Terminal</th>
-                                <th scope="col">Nombre Alumnos</th>
-                                <th scope="col">Nombre Directores</th>
-                                <th scope="col">Tipo de Titulacion</th>
-                                <th scope="col">Area</th>
+                                <th scope="col">Nombre Archivo</th>
+                                <th scope="col">Tipo de archivo</th>
                             </tr>
                         </thead>
                         <tbody id="registros">
@@ -96,6 +85,6 @@
                 </div>
             </div>
         </div>
-        <script src="JS/Busqueda.js"></script>
+        <script src="JS/archivos.js"></script>
     </body>
 </html>

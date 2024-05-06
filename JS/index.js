@@ -20,18 +20,7 @@ $(document).ready(() => {
         $('.buttons').hide();
         $('#form_recupera').show();
     });
-    /* Click en Ingresar y se inicia sesión con Ajax
-    $('#login').click(() => {
-        if ($('#usuario').val() === 'root' && $('#contra').val() === 'root') {
-            $.post('php/sesiones.php', {usuario : 'root'}, function (response) {
-                alert(response);
-                window.location.href = 'index.php';
-            })
-        // Si los datos son incorrectos se muestra mensaje de error
-        }else{
-            $('.err_cred').show();
-        }
-    });*/
+   
     // Click en Recuperar y se mandan datos a la generación del PDF
     $('#login').click(() => {
         if ($('#correo').val() === 'root' && $('#contra').val() === 'root') {
@@ -47,7 +36,7 @@ $(document).ready(() => {
                 alert('Usuario inexistente');
                 $('.err_cred').show();
             }else{
-                window.location.href = 'index.php';
+            window.location.href = 'index.php';
             }
         })}
     });

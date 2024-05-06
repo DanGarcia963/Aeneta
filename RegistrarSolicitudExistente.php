@@ -44,6 +44,7 @@
                                     <th scope="col" style=" width: 120px;"></th>
                                     <th scope="col">Trabajo Terminal</th>
                                     <th scope="col">Nombre Alumnos</th>
+                                    <th scope="col">Correos</th>
                                     <th scope="col">Nombre Directores</th>
                                     <th scope="col">Tipo de Titulacion</th>
                                     <th scope="col">Area</th>

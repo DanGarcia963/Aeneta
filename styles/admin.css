@@ -135,6 +135,18 @@ textarea {
     /*box-shadow: 1px 1px 5px black;*/
 }
 
+.botones{
+    color: white;
+    display: block;
+    width: auto;
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    padding: 10%;
+    text-align: center;
+    text-shadow: 1px 1px 5px black;
+}
+
 label{
     display: flex;
     align-items: center;
