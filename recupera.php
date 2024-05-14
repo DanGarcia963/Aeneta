@@ -117,21 +117,21 @@
                     $pdf->Cell(120,10,utf8_decode('ALUMNOS:'),1,1,'C',0);
                     $pdf->setX(50);
                     $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(120,10,utf8_decode($row['Nombres_Alumnos']),1,1,'C',0);
+                    $pdf->Multicell(120,10,utf8_decode($row['Nombres_Alumnos']),1,'C');
         
                     $pdf->setX(50);
                     $pdf->SetFont('Arial','B',15); 
                     $pdf->Cell(120,10,utf8_decode('CORREOS ALUMNOS:'),1,1,'C',0);
                     $pdf->setX(50);
                     $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(120,10,utf8_decode($row['Correos_Alumnos']),1,1,'C',0);
+                    $pdf->MultiCell(120,10,utf8_decode($row['Correos_Alumnos']),1,'C');
 
                     $pdf->setX(50);
                     $pdf->SetFont('Arial','B',15); 
                     $pdf->Cell(120,10,utf8_decode('DIRECTORES:'),1,1,'C',0);
                     $pdf->setX(50);
                     $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(120,10,utf8_decode($row['Nombres_Directores']),1,1,'C',0);
+                    $pdf->MultiCell(120,10,utf8_decode($row['Nombres_Directores']),1,'C');
                     
                     $pdf->setX(50);
                     $pdf->SetFont('Arial','B',15); 

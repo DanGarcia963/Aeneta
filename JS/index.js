@@ -17,11 +17,6 @@ $(document).ready(() => {
         $('.buttons').hide();
         $('#formulario').show();
     });
-    // Click en Recuperar y se muestra el formulario
-    $('.btnpdf').click(() => {
-        $('.buttons').hide();
-        $('#form_recupera').show();
-    });
     //listar();
    
     // Click en Recuperar y se mandan datos a la generación del PDF
@@ -51,28 +46,6 @@ $(document).ready(() => {
         })
     });
 
-    function listar(){
-        $.ajax({
-            url : 'PHP/BuscarIDTT_Alumno.php',
-            type : 'GET',
-            success : function(response){
-                let registros = JSON.parse(response);
-                let template = '';
-                let total = 0;
-                registros.forEach(registro => {
-                    total++;
-                    template += `
-                    <tr IdTT="${registro.ID_Terminal}">
-                                </tr>
-                                `
-                });
-            }
-        });
-    }
 
-    $(document).on('click', '.btnPDF', function () {    
-        listar();
-                    window.location.href = "recupera.php";                  
-    })
 
 });

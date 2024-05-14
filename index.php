@@ -152,6 +152,28 @@
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a id="btnPDF" class="botones btnpdf">Recuperar PDF</a>
                         </div>
+                        <script>
+                            $(document).on('click', '#btnPDF', function () {
+                                // Cuando se hace clic en el botón, primero llamamos a la función listar()
+                                listar();
+                            });
+
+                            function listar() {
+                                $.ajax({
+                                    url: 'PHP/BuscarIDTT_Alumno.php',
+                                    type: 'GET',
+                                    success: function (response) {
+                                        // Una vez que la llamada AJAX ha tenido éxito, aquí es donde queremos hacer la redirección
+                                        console.log("La llamada AJAX ha terminado");
+                                        window.location.href = 'recupera.php';
+                                    },
+                                    error: function (xhr, status, error) {
+                                        // Si hay algún error en la llamada AJAX, lo manejamos aquí
+                                        console.error("Error en la llamada AJAX:", error);
+                                    }
+                                });
+                            }
+                        </script>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones Solicitudes" href="archivos.php">Adjuntar Archivos</a>
                         </div>
