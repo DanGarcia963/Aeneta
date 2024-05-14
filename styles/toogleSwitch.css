@@ -1,0 +1,94 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+
+.contenedor{
+    color: white;
+    width: auto;
+    height: 80px;
+    background-color: rgb(255, 255, 255, 0.3);
+    padding:0 1.5rem;
+    border-radius: 0.8rem;
+    backdrop-filter: blur(3px);
+    display:flex;
+    text-align: right;
+    align-items: center;
+    cursor: pointer;
+}
+.msg{
+    color: white;
+    display:contents;
+    padding: 5%;
+    text-align: center;
+    text-shadow: 1px 1px 5px black;
+}
+button.boton{
+    color: white;
+    display: block;
+    width: auto;
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    padding: 10%;
+    text-align: center;
+    text-shadow: 1px 1px 5px black;
+}
+ .switch{
+    color: white;
+    width: auto;
+    height: 80px;
+    background-color: rgb(255, 255, 255, 0.3);
+    padding:0 1.5rem;
+    border-radius: 0.8rem;
+    backdrop-filter: blur(3px);
+    display:flex;
+    text-align: right;
+    align-items: center;
+    cursor: pointer;
+}
+
+ .switch .input{
+    display: none;   
+}
+
+ .switch .rail{
+    position: relative;
+     width: 90px;
+     height: 30px;
+     background-color: #fff;
+     border-radius: 3rem;
+     padding: 5%;
+}
+
+ .switch .rail .circle{
+    display: block;
+    width:36px;
+    height:36px;
+    background-image: linear-gradient(to right,#b8cbb8 0%,#b8cbb8 0%, #b465da 0%, #ff1100 40%,#ff1100 66%,#ff1100 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    transform: translateY(-150%);
+    left: 0;
+    transition: transform 0.4s;
+}
+
+ .switch .indicator{
+    width: 15px;    
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-left: 1.5rem;
+    transition: transform 0.4s;
+}
+
+ .switch .input:checked ~ .rail .circle{
+    transform:translate(54px, -150%);
+}
+
+ .switch .input:checked ~ .indicator{
+    background-color: #43e97b;
+}

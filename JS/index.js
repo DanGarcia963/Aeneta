@@ -4,6 +4,8 @@ $(document).ready(() => {
     $('.err_cred').hide();
     $('#formulario').hide();
     $('#form_recupera').hide();
+    $('#TablaRegistros').hide();
+
     // Click en Regresar y se oculta el formulario
     $('.back').click(() => {
         $('.buttons').show();
@@ -20,6 +22,7 @@ $(document).ready(() => {
         $('.buttons').hide();
         $('#form_recupera').show();
     });
+    //listar();
    
     // Click en Recuperar y se mandan datos a la generación del PDF
     $('#login').click(() => {
@@ -47,4 +50,29 @@ $(document).ready(() => {
             window.location.href = 'index.php';
         })
     });
+
+    function listar(){
+        $.ajax({
+            url : 'PHP/BuscarIDTT_Alumno.php',
+            type : 'GET',
+            success : function(response){
+                let registros = JSON.parse(response);
+                let template = '';
+                let total = 0;
+                registros.forEach(registro => {
+                    total++;
+                    template += `
+                    <tr IdTT="${registro.ID_Terminal}">
+                                </tr>
+                                `
+                });
+            }
+        });
+    }
+
+    $(document).on('click', '.btnPDF', function () {    
+        listar();
+                    window.location.href = "recupera.php";                  
+    })
+
 });

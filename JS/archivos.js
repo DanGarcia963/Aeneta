@@ -52,12 +52,10 @@ $(document).ready(() => {
         }
     }
 
-    // Escuchar clics en el botón visualizar
     $(document).on('click', '.visualizar', function () {
         let element = $(this)[0].parentElement.parentElement;
         let IDArchivo = $(element).attr('IdArchivo');
 
-        // Hacer la petición AJAX POST
         window.open('PHP/VerArchivo.php?IDArchivo=' + IDArchivo, '_blank');
     });
 
@@ -65,7 +63,6 @@ $(document).ready(() => {
         let element = $(this)[0].parentElement.parentElement;
         let IDArchivo = $(element).attr('IdArchivo');
 
-        // Hacer la petición AJAX POST
         $.post('PHP/BorrarArchivo.php', {IDArchivo: IDArchivo}, function (response) {
             window.location.reload();
         });

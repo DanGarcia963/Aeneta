@@ -66,14 +66,13 @@ window.onload = function () {
         // El submit se desactiva hasta nuevo aviso
         event.preventDefault();
         const Area = document.getElementById('area');
-        const TipTit = document.getElementById('Tipo_Titulacion');
         const dir1 = document.getElementById('director1');
         const dir2 = document.getElementById('director2');
 
 
         if(campos.nombreTT && campos.descripcionTT){
             // Si hay más de una checkbox palomeada
-           if((Area.value == "Seleccionar") || (TipTit.value == "Seleccionar") || (dir1.value == "Seleccionar")|| (dir2.value == "Seleccionar")){
+           if((Area.value == "Seleccionar") || (dir1.value == "Seleccionar")|| (dir2.value == "Seleccionar")){
                 alert("Faltan campos por llenar 2");
 
             }else{

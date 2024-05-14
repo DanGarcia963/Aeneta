@@ -8,6 +8,22 @@
     $ID_Alumno = isset($_SESSION["usuario"]) ? $_SESSION["usuario"] : "invitado";
     echo "<script>console.log('$ID_Alumno');</script>";
     echo "<script>console.log('$ID_Director');</script>";
+    if(isset($_SESSION["Time"])){}else{
+        $_SESSION["Time"] = "NO";
+    }
+    $TIMEP = isset($_SESSION["Time"]) ? $_SESSION["Time"] : "NO";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Verificar si el formulario fue enviado
+        if (isset($_POST["changeTime"]) && $_POST["changeTime"] == "true") {
+            $_SESSION["Time"] = "SI"; // Cambiar el valor de la sesión a "SI"
+        }
+        else if (isset($_POST["changeTime"]) && $_POST["changeTime"] == "false") {
+            $_SESSION["Time"] = "NO"; // Cambiar el valor de la sesión a "NO"
+        }
+    }
+
+    
+    echo "<script>console.log('$TIMEP');</script>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,11 +35,13 @@
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/toogleSwitch.css">
     <script src="JS/jquery-3.7.1.js"></script>
     <script src="JS/index.js"></script>
 </head>
 <body>
     <div class="container justify-content-center">
+
         <div class="row justify-content-center present_card">
             <img class="col-lg-2 col-md-4 col-sm-4 hdr_img" src="img/escom.png" alt="ESCOM">
             <div class="col-lg-6 col-md-4 col-sm-4"></div>
@@ -42,7 +60,56 @@
         </div>
         <div class="row buttons justify-content-center">
             <div class="row col-8 justify-content-center">
-       
+            <?php
+                if($_SESSION["usuario"] == "root")
+                {
+            ?>
+
+            <?php
+                $verified = (isset($_SESSION["Time"]));
+                //echo "<script>console.log('$verified');</script>";
+                $verified1 = (isset($_SESSION["Time"]) && $_SESSION["Time"] == "NO");
+                //echo "<script>console.log('$verified1');</script>";
+                if ($_SESSION["Time"] == "SI") {
+            ?>                                 
+                    <div class="contenedor col col-lg-3 col-md-4 col-sm-12 mt-3">
+                    <div class="msg col col-lg-3 col-md-4 col-sm-12 mt-3">Desactivar Envio de Protocolos</div>
+                    <label class="switch">
+                        <input type="checkbox" class="input" value="<?php $_SESSION["Time"] = "SI"; ?>" checked>
+                        <div class="rail">
+                            <span class="circle"></span>
+                        </div>
+                        <span class="indicator"></span>
+                    </label>
+                    <form method="post" action="">
+                            <input type="hidden" name="changeTime" value="false">
+                            <button class="boton" type="submit">Confirmar</button>
+                    </form>
+                </div>
+            <?php                                
+                }else if ($_SESSION["Time"] == "NO"){
+            ?> 
+                    <div class="contenedor col col-lg-3 col-md-4 col-sm-12 mt-3">
+                    <div class="msg col col-lg-3 col-md-4 col-sm-12 mt-3">Activar Envio de Protocolos</div>
+                    <label class="switch">
+                        <input type="checkbox" class="input" value="<?php $_SESSION["Time"] = "NO"; ?>">
+                        <div class="rail">
+                            <span class="circle"></span>
+                        </div>
+                        <span class="indicator"></span>
+                    </label>
+                    <form method="post" action="">
+                            <input type="hidden" name="changeTime" value="true">
+                            <button class="boton" type="submit">Confirmar</button>
+                        </form>
+                </div>
+            <?php
+                }                        
+            ?>
+
+            <?php
+                }
+            ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones btnpanel" href="Busqueda.php">Panel de Busqueda</a>
                         </div>
@@ -80,13 +147,16 @@
                     } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "SI"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones Solicitudes" href="GestionSolicitud.php">Gestionar Solicitud</a>
+                            <a class="botones Solicitudes" href="GestionSolicitud.php">Visualizar Solicitud</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones Solicitudes" href="archivos.php">Adjuntar Archivos</a>
+                            <a id="btnPDF" class="botones btnpdf">Recuperar PDF</a>
+                        </div>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <a class="botones Solicitudes" href="archivos.php">Adjuntar Archivos</a>
                         </div>
                 <?php
-                    }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "NO"){
+                    }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "NO" && $_SESSION["Time"] == "SI"){
                 ?>
                 <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones Solicitudes" href="RegistrarSolicitud.php">Registrar Solicitud</a>
@@ -97,14 +167,20 @@
                 <?php
                     }else if($_SESSION["TT"] == "Director" && $_SESSION["usuario"] != "invitado"){
                 ?>
-                <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones Solicitudes" href="RevisarTT.php">Revisar Trabajos Terminales</a>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <a class="botones Solicitudes" href="Solicitudes.php">Aceptar protocolos</a>
+                        </div>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <a class="botones Solicitudes" href="RevisarTT.php">Sinodal Trabajos Terminales</a>
                         </div>
                 <?php
                     }
                 ?>
             </div>
         </div>
+
+
+
         <div class="row logg justify-content-center">
             <div class="row col-8 login justify-content-center">
                 <form class="row col-8 justify-content-center" id="formulario" novalidate>

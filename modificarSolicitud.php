@@ -13,7 +13,6 @@
             "Nombre_TT" => $_POST["nombreTT"],
             "Descripcion_TT" => $_POST["descripcionTT"],
             "Area" => $_POST["area"],
-            "TipoTitulacion" => $_POST["Tipo_Titulacion"],
             "Director1" => $_POST["director1"],
             "Director2" => $_POST["director2"],
         ];
@@ -50,19 +49,6 @@ if ($result_director->num_rows > 0) {
 }
 ?>
 
-<?php
-include("PHP/conexion.php");
-$query_tip_titu = "SELECT ID_Tipo_Titulacion, Nombre_Tipo_Titulacion FROM tipo_titulacion";
-$result_tip_titu = mysqli_query($conexion, $query_tip_titu);
-$tip_titu = array();
-if ($result_tip_titu->num_rows > 0) {
-    while($row = $result_tip_titu->fetch_assoc()) {
-        $tip_titu[$row["ID_Tipo_Titulacion"]] = $row["Nombre_Tipo_Titulacion"];
-    }
-} else {
-    echo "No se encontraron alcaldías";
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -185,32 +171,6 @@ if ($result_tip_titu->num_rows > 0) {
                                 }
                                 ?>
                             </select>
-                            </div>
-                        <?php
-                            }
-                        ?>
-
-                        <label class="mt-1 col-lg-5 col-md-12 col-sm-12" for="Tipo_Titulacion">Tipo de Titulacion:</label>
-                        <?php
-                            if(!empty($_POST["nombreTT"])){
-                        ?>
-                            <div class="mt-1 col-lg-7 col-md-12 col-sm-12">
-                                <select class="form-control" name="Tipo_Titulacion" id="Tipo_Titulacion" required>
-                                    <?php
-                                        echo "<script>console.log('" . htmlspecialchars($_POST['Tipo_Titulacion']) . "');</script>";
-                                        foreach ($tip_titu as $id_tipo_titulacion => $nombre_tipo_titulacion) {
-                                            if ($id_tipo_titulacion == $variables["TipoTitulacion"] || $nombre_tipo_titulacion == $variables["TipoTitulacion"]) {
-                                            ?>  
-                                                <option value="<?php echo "$id_tipo_titulacion"; ?>" selected><?php echo "$nombre_tipo_titulacion"; ?></option>
-                                            <?php
-                                            }else{
-                                            ?>  
-                                                <option value="<?php echo "$id_tipo_titulacion"; ?>"><?php echo "$nombre_tipo_titulacion"; ?></option>
-                                            <?php
-                                            }
-                                        }
-                                    ?>
-                                </select>
                             </div>
                         <?php
                             }

@@ -18,6 +18,7 @@
 
     if(!empty($ID_Alumno)){
         $query = "SELECT 
+        mt.ID_TT AS 'ID_Trabajo',
         a.ID_Alumno AS 'ID_Alumno',
         mt.Nombre_TT AS 'Trabajo_Terminal',
         mt.Descripción AS 'Descripcion',
@@ -43,6 +44,7 @@
         $json = array();
         while($row = mysqli_fetch_array($result)){
             $json[] = array(
+                "IDTrabajo" => $row["ID_Trabajo"],
                 "IDAlumno" => $row["ID_Alumno"],
                 "TrabajoTerminal" => $row["Trabajo_Terminal"],
                 "Description" => $row["Descripcion"],

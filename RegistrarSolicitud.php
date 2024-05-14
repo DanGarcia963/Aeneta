@@ -60,21 +60,6 @@
                                 </select>
                             </div>
 
-                            <label class="col-lg-4 col-sm-4 mt-3" for="Tipo_Titulacion">Tipo de Titulacion:</label>
-                            <div class="col-lg-8 col-sm-6 mt-3">
-                                <select class="form-control" name="Tipo_Titulacion" id="Tipo_Titulacion" required>
-                                    <option selected>Seleccionar</option>
-                                    <?php
-                                        include("PHP/conexion.php");
-                                        $query="SELECT Nombre_Tipo_Titulacion FROM tipo_titulacion";
-                                        $result=mysqli_query($conexion, $query) or die (mysqli_error());
-                                        while ($row=mysqli_fetch_array($result)){
-                                        echo '<option value="'.$row['Nombre_Tipo_Titulacion'].'">'.$row['Nombre_Tipo_Titulacion'].'</option>';
-                                        }
-                                    ?>
-                                </select>
-                            </div>
-
                             <button type="button" id="fbtn" class="col-6 btn btn-primary">Siguiente</button>
 
                         </fieldset>

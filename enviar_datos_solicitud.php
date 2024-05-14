@@ -15,15 +15,13 @@ if (!empty($_POST["nombreTT"])) {
 
     $NombreTT = trim($_POST["nombreTT"]);
     $DescTT = trim($_POST["descripcionTT"]);
-    $Area = $_POST["area"];
-    $Tip_Titu = $_POST["Tipo_Titulacion"];   
+    $Area = $_POST["area"]; 
     $director1 = $_POST["director1"];
     $director2 = $_POST["director2"];
     echo "<script>console.log('" . htmlspecialchars($_POST['area']) . "');</script>";
-    echo "<script>console.log('" . htmlspecialchars($_POST['Tipo_Titulacion']) . "');</script>";
     echo "<script>console.log('" . htmlspecialchars($_POST['director1']) . "');</script>";
     echo "<script>console.log('" . htmlspecialchars($_POST['director2']) . "');</script>";
-    $query_insert_tt = "INSERT INTO metodo_titulacion (Nombre_TT, Descripción, ID_Area, ID_Tipo_Titulacion) VALUES ('$NombreTT', '$DescTT', $Area,$Tip_Titu)";
+    $query_insert_tt = "INSERT INTO metodo_titulacion (Nombre_TT, Descripción, ID_Area) VALUES ('$NombreTT', '$DescTT', $Area)";
     $resultado=mysqli_query($conexion, $query_insert_tt);
     if($resultado){
         // Si la inserción fue exitosa, obtenemos el ID generado

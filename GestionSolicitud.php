@@ -100,6 +100,34 @@
                     </div>
                     
                 </form>
+                <?php
+                include("PHP/conexion.php");
+                    $query = "SELECT 
+                    et.Nombre_Estado AS 'Estado'
+                    FROM metodo_titulacion mt
+                    LEFT JOIN metodo_director md ON mt.ID_TT = md.ID_TT
+                    LEFT JOIN director d ON md.ID_Director = d.ID_Director
+                    LEFT JOIN alumno a ON mt.ID_TT = a.ID_TT
+                    LEFT JOIN area ar ON mt.ID_Area = ar.ID_Area
+                    LEFT JOIN tipo_titulacion tt ON mt.ID_Tipo_Titulacion = tt.ID_Tipo_Titulacion
+                    LEFT JOIN estado_titulacion et ON mt.ID_Estado = et.ID_Estado
+                    WHERE a.ID_Alumno = '$ID_Alumno'";
+                    $result = mysqli_query($conexion, $query);
+                    if($result)
+                    {
+                        $row = mysqli_fetch_assoc($result);
+                        $State = $row["Estado"];
+                    }
+                ?>
+                <?php
+                        if($State == "Aceptado"){
+                ?>
+                        <div class="row mt-3 justify-content-center">
+                            <button class="col-5 btn btn-primary" id="recibido" type="submit">Recibido</button>
+                        </div>
+                <?php
+                        }
+                            ?>
                 </div>
             </div>
         </div>

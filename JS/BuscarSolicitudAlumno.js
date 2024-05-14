@@ -4,6 +4,8 @@ $(document).ready(() => {
     $('#cancelar').click(function () {
         window.location.href = 'index.php';
     });
+
+
     
 
 
@@ -21,7 +23,7 @@ function listarAceptados(){
             registros.forEach(registro => {
                 total++;
                 template += `
-                <tr IdAlumno="${registro.IDAlumno}">
+                <tr IdTT="${registro.IDTrabajo}" IdAlumno="${registro.IDAlumno}">
                                 <th scope="row" class="align-middle editar_eliminar">  
                                     <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>                                 
                                     <button class="btn btn-outline-success registrar"><i class="bi bi-arrow-up-right-square"></i></button>
@@ -52,6 +54,23 @@ function listarAceptados(){
         }
     });
 }
+
+
+$(document).on('click', '#recibido', function () {
+    let element = $(this)[0].parentElement.parentElement;
+    let IDTT = $(element).attr('IdTT');
+    $.ajax({
+        url: 'PHP/EnProceso.php',
+        type: 'POST',
+        data: {IDTT},
+        success: function(response){
+            console.log("Registro modificado correctamente");
+
+                window.location.reload();
+            
+        }
+    });
+})
 
 
     $('#TablaRegistros').hide();

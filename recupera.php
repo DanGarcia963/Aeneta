@@ -1,16 +1,35 @@
 <?php
-    include ("php/conexion.php");//Se llama archivo donde se ha hecho la conexion
-
-    if(empty($_POST["boleta"])){
+    include ("PHP/conexion.php");//Se llama archivo donde se ha hecho la conexion
+    session_start();
+    if(!isset($_SESSION["ID_TT"])){
         header("Location: lost.html");
     } 
     else{
         require('fpdf/fpdf.php');
 
-        $boleta = $_POST["boleta"];
-        $curp = $_POST["curp"];
 
-        $query_buscar = "SELECT * FROM alumnos WHERE curp ='$curp' AND boleta='$boleta'";
+
+        $ID_TT = $_SESSION["ID_TT"];
+
+        $query_buscar = "SELECT 
+        mt.ID_TT AS 'ID_Trabajo_Terminal',
+        mt.Nombre_TT AS 'Trabajo_Terminal',
+        mt.Descripción AS 'Descripcion',
+        GROUP_CONCAT(DISTINCT CONCAT(a.Nombres, ' ', a.Apellido_Paterno, ' ', a.Apellido_Materno) SEPARATOR ', ') AS 'Nombres_Alumnos',
+        GROUP_CONCAT(DISTINCT CONCAT(a.Correo) SEPARATOR ', ') AS 'Correos_Alumnos',
+        GROUP_CONCAT(DISTINCT CONCAT(d.Nombre_Director, ' ', d.Apellido_Paterno, ' ', d.Apellido_Materno) SEPARATOR ', ') AS 'Nombres_Directores',
+        tt.Nombre_Tipo_Titulacion AS 'Tipo_Titulacion',
+        ar.Nombre_Area AS 'Area',
+        et.Nombre_Estado AS 'Estado'
+        FROM metodo_titulacion mt
+        LEFT JOIN metodo_director md ON mt.ID_TT = md.ID_TT
+        LEFT JOIN director d ON md.ID_Director = d.ID_Director
+        LEFT JOIN alumno a ON mt.ID_TT = a.ID_TT
+        LEFT JOIN area ar ON mt.ID_Area = ar.ID_Area
+        LEFT JOIN tipo_titulacion tt ON mt.ID_Tipo_Titulacion = tt.ID_Tipo_Titulacion
+        LEFT JOIN estado_titulacion et ON mt.ID_Estado = et.ID_Estado
+        WHERE mt.ID_TT = $ID_TT
+        GROUP BY mt.ID_TT";
 
         $result = mysqli_query($conexion, $query_buscar);
 
@@ -28,14 +47,14 @@
                     // Movernos a la derecha
                     $this->Cell(30);
                     // Título
-                    $this->Cell(130,10,utf8_decode('INSTITUTO POLITÉCNICO NACIONAL'),1,0,'C');
+                    $this->Cell(130,10,utf8_decode('SISTEMA DE REGISTRO DE TRABAJOS DE TITULACION'),0,0,'C');
                     // Salto de línea
                     $this->Ln(13);
                     // Movernos a la derecha
                     $this->Cell(45);
                     $this->SetFont('Arial','',16);
                     //Subtitulo
-                    $this->Cell(100,7,utf8_decode('ESCUELA SUPERIOR DE COMPUTO'),0,0,'C');
+                    $this->Cell(100,7,utf8_decode('AENETA'),0,0,'C');
                     // Salto de línea
                     $this->Ln(10);
                 }
@@ -65,168 +84,76 @@
                     $pdf->Ln(5);
                     $pdf->setX(50);
                     $pdf->SetFont('Arial','BU',16);
-                    $pdf->cell(100,7,utf8_decode('DATOS GENERALES'),0,0,'C');
+                    $pdf->cell(100,7,utf8_decode('DATOS TRABAJO DE TITULACION'),0,0,'C');
                     $pdf->Ln(10);
         
-                    $pdf->setX(20);//se reposiciona en x en 30
+                    $pdf->setX(50);//se reposiciona en x en 30
                     $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(68,10,utf8_decode('BOLETA:'),1,0,'C',0);
+                    $pdf->Cell(120,10,utf8_decode('ID DE TRABAJO DE TITULACION:'),1,1,'C',0);
+                    $pdf->setX(50);//se reposiciona en x en 30
                     $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['boleta']),1,1,'C',0);
-        
-                    $pdf->setX(20);
+                    $pdf->cell(120,10,utf8_decode($row['ID_Trabajo_Terminal']),1,1,'C',0);
+                    
+
+                    $pdf->setX(50);
                     $pdf->SetFont('Arial','B',15);    
-                    $pdf->Cell(68,10,utf8_decode('NOMBRE:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['nombre']),1,1,'C',0);
-        
-                    $pdf->setX(20);
-                    $pdf->SetFont('Arial','B',15); 
-                    $pdf->Cell(68,10,utf8_decode('APELLIDO PATERNO:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['apellido_paterno']),1,1,'C',0);
-        
-                    $pdf->setX(20);
-                    $pdf->SetFont('Arial','B',15); 
-                    $pdf->Cell(68,10,utf8_decode('APELLIDO MATERNO:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['apellido_materno']),1,1,'C',0);
-                    
-                    $pdf->setX(20);
-                    $pdf->SetFont('Arial','B',15); 
-                    $pdf->Cell(68,10,utf8_decode('FECHA DE NACIMIENTO:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['fecha']),1,1,'C',0);
-        
-                    $pdf->setX(20);
-                    $pdf->SetFont('Arial','B',15); 
-                    $pdf->Cell(68,10,utf8_decode('GENERO:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['genero']),1,1,'C',0);
-        
-                    $pdf->setX(20);
-                    $pdf->SetFont('Arial','B',15); 
-                    $pdf->Cell(68,10,utf8_decode('CURP:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['curp']),1,1,'C',0);
-                    
-                    $pdf->setX(20);
-                    $pdf->SetFont('Arial','B',15); 
-                    $pdf->Cell(68,10,utf8_decode('HORARIO:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['horario']),1,1,'C',0);
-                    
-                    $pdf->setX(20);
-                    $pdf->SetFont('Arial','B',15); 
-                    $pdf->Cell(68,10,utf8_decode('LABORATORIO:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['laboratorio']),1,1,'C',0);
-        
-                    $pdf->Ln(5);
+                    $pdf->Cell(120,10,utf8_decode('NOMBRE DE TRABAJO DE TITULACION:'),1,1,'C',0);
                     $pdf->setX(50);
-                    $pdf->SetFont('Arial','BU',16);
-                    $pdf->cell(100,7,utf8_decode('DATOS DE CONTACTO'),0,0,'C');
-                    $pdf->Ln(10);
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(60,10,utf8_decode('CALLE:'),1,0,'C',0);
                     $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['calle']),1,1,'C',0);
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(60,10,utf8_decode('NUMERO EXTERIOR:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['exterior']),1,1,'C',0);
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(60,10,utf8_decode('NUMERO INTERIOR:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['interior']),1,1,'C',0);
-        
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(60,10,utf8_decode('COLONIA:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['colonia']),1,1,'C',0);
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(60,10,utf8_decode('ALCALDIA:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['alcaldia']),1,1,'C',0);
+                    $pdf->MultiCell(120, 10, utf8_decode($row['Trabajo_Terminal']), 1, 'C');
                     
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(60,10,utf8_decode('ESTADO:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['estado']),1,1,'C',0);
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(60,10,utf8_decode('C.P.:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['cp']),1,1,'C',0);
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(60,10,utf8_decode('TELEFONO:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['telefono']),1,1,'C',0);
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(60,10,utf8_decode('CORREOS:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['correo']),1,1,'C',0);
-                    
-                    $pdf->AddPage();
-                    $pdf->Ln(5);
+
                     $pdf->setX(50);
-                    $pdf->SetFont('Arial','BU',16);
-                    $pdf->cell(100,7,utf8_decode('PROCEDENCIA'),0,0,'C');
-                    $pdf->Ln(10);
-                    
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(80,10,utf8_decode('ESCUELA DE PROCEDENCIA:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(100,10,utf8_decode($row['escuela']),1,1,'C',0);
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(80,10,utf8_decode('ENTIDAD FEDERATIVA:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(80,10,utf8_decode($row['entidad']),1,1,'C',0);
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(80,10,utf8_decode('PROMEDIO:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(10,10,utf8_decode($row['promedio']),1,1,'C',0);
-        
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(80,10,utf8_decode('ELECCION:'),1,0,'C',0);
-                    $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(10,10,utf8_decode($row['opcion']),1,1,'C',0);
-                    
-                    
-                    $pdf->Ln(5);
+                    $pdf->SetFont('Arial','B',15);    
+                    $pdf->Cell(120,10,utf8_decode('RESUMEN DE TRABAJO DE TITULACION:'),1,1,'C',0);
                     $pdf->setX(50);
-                    $pdf->SetFont('Arial','BU',16);
-                    $pdf->cell(100,7,utf8_decode('DATOS MEDICOS'),0,0,'C');
-                    $pdf->Ln(10);
-                    
-                    $pdf->setX(20);//se reposiciona en x en 30
-                    $pdf->SetFont('Arial','B',15);     
-                    $pdf->Cell(60,10,utf8_decode('DISCAPACIDAD:'),1,0,'C',0);
                     $pdf->SetFont('Arial','',15); 
-                    $pdf->cell(100,10,utf8_decode($row['discapacidad']),1,0,'C',0);
+
+                    // MultiCell con altura calculada
+                    $pdf->MultiCell(120, 10, utf8_decode($row['Descripcion']), 1, 'C');
+
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','B',15); 
+                    $pdf->Cell(120,10,utf8_decode('ALUMNOS:'),1,1,'C',0);
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','',15); 
+                    $pdf->cell(120,10,utf8_decode($row['Nombres_Alumnos']),1,1,'C',0);
         
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','B',15); 
+                    $pdf->Cell(120,10,utf8_decode('CORREOS ALUMNOS:'),1,1,'C',0);
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','',15); 
+                    $pdf->cell(120,10,utf8_decode($row['Correos_Alumnos']),1,1,'C',0);
+
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','B',15); 
+                    $pdf->Cell(120,10,utf8_decode('DIRECTORES:'),1,1,'C',0);
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','',15); 
+                    $pdf->cell(120,10,utf8_decode($row['Nombres_Directores']),1,1,'C',0);
+                    
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','B',15); 
+                    $pdf->Cell(120,10,utf8_decode('TIPO DE TITULACION:'),1,1,'C',0);
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','',15); 
+                    $pdf->cell(120,10,utf8_decode($row['Tipo_Titulacion']),1,1,'C',0);
+        
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','B',15); 
+                    $pdf->Cell(120,10,utf8_decode('AREA DE ESPECIALIZACION:'),1,1,'C',0);
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','',15); 
+                    $pdf->cell(120,10,utf8_decode($row['Area']),1,1,'C',0);
+        
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','B',15); 
+                    $pdf->Cell(120,10,utf8_decode('ESTADO DE TRABAJO DE TITULACION:'),1,1,'C',0);
+                    $pdf->setX(50);
+                    $pdf->SetFont('Arial','',15); 
+                    $pdf->cell(120,10,utf8_decode($row['Estado']),1,1,'C',0);
+                    
                 }
                 $pdf->Output();
         }else{
@@ -234,4 +161,5 @@
             die();
         }
     }
+
 ?>
