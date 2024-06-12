@@ -11,7 +11,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Registrar en Solicitud Existente</title>
+        <title>Registrar en Protocolo Existente</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row titulo">   
                 <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/escom.png" alt="ESCOM" class="col-2">
-                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Panel de Registro a Solicitud Existente</h1></div>
+                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Registro a Protocolo de Trabajo de Titulacion Existente</h1></div>
                 <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/Logo.png" alt="IPN" class="col-2">
             </div>
             <div class="row fields">

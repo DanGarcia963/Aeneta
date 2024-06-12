@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row titulo">   
                 <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/escom.png" alt="ESCOM" class="col-2">
-                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Panel de Busqueda</h1></div>
+                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Registro de Protocolo de Trabajo de Titulacion</h1></div>
                 <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/Logo.png" alt="IPN" class="col-2">
             </div>
             <div class="row justify-content-center">
@@ -40,9 +40,14 @@
                                 <input class="form-control" type="text" name="nombreTT" id="nombreTT" placeholder="Nombre Trabajo de Titulación" required>
                             </div>
                             
-                            <label class="col-lg-4 col-sm-10 mt-3" for="descripcionTT">Descripcion Trabajo de Titulación:</label>
+                            <label class="col-lg-4 col-sm-10 mt-3" for="descripcionTT">Resumen Trabajo de Titulación:</label>
                             <div class="col-lg-8 col-sm-10 mt-3">
                                 <input class="form-control" type="text" name="descripcionTT" id="descripcionTT" placeholder="Descripción" required>
+                            </div>
+
+                            <label class="col-lg-4 col-sm-10 mt-3" for="palabrasclave">Palabras Clave Trabajo de Titulación:</label>
+                            <div class="col-lg-8 col-sm-10 mt-3">
+                                <input class="form-control" type="text" name="palabrasclave" id="palabrasclave" placeholder="Palabras Clave" required>
                             </div>
                             
                             <label class="col-lg-4 col-sm-4 mt-3" for="area">Area de Estudio:</label>
@@ -60,12 +65,90 @@
                                 </select>
                             </div>
 
+                            <label class="col-lg-4 col-sm-4 mt-3" for="Tipo_Titulacion">Tipo de Titulacion:</label>
+                            <div class="col-lg-8 col-sm-6 mt-3">
+                                <select class="form-control" name="Tipo_Titulacion" id="Tipo_Titulacion" required>
+                                    <option selected>Seleccionar</option>
+                                    <?php
+                                        include("PHP/conexion.php");
+                                        $query="SELECT Nombre_Tipo_Titulacion FROM tipo_titulacion";
+                                        $result=mysqli_query($conexion, $query) or die (mysqli_error());
+                                        while ($row=mysqli_fetch_array($result)){
+                                        echo '<option value="'.$row['Nombre_Tipo_Titulacion'].'">'.$row['Nombre_Tipo_Titulacion'].'</option>';
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+
                             <button type="button" id="fbtn" class="col-6 btn btn-primary">Siguiente</button>
 
                         </fieldset>
                     </div>
 
                     <div class="col-lg-5 col-md-7 col-sm-12 fields" id="ssection">
+                        <fieldset class="row seccion">
+                            <legend>Alumnos</legend>
+
+                            <label class="col-lg-4 col-sm-4 mt-3" for="alumno2">Alumno 2:</label>
+                            <div class="col-lg-8 col-sm-6 mt-3">
+                                <select class="form-control" name="alumno2" id="alumno2" required>
+                                    <option selected>Seleccionar</option>
+                                    <?php
+                                        include("PHP/conexion.php");
+                                        $query="SELECT CONCAT(Nombres, ' ', Apellido_Paterno, ' ', Apellido_Materno) AS 'Nombres_Alumno' 
+                                         FROM alumno 
+                                         WHERE ID_TT IS NULL";
+                                        $result=mysqli_query($conexion, $query) or die (mysqli_error());
+                                        while ($row=mysqli_fetch_array($result)){
+                                        echo '<option value="'.$row['Nombres_Alumno'].'">'.$row['Nombres_Alumno'].'</option>';
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+
+                            <label class="col-lg-4 col-sm-4 mt-3" for="alumno3">Alumno 3:</label>
+                            <div class="col-lg-8 col-sm-6 mt-3">
+                                <select class="form-control" name="alumno3" id="alumno3" required>
+                                    <option selected>Seleccionar</option>
+                                    <?php
+                                        include("PHP/conexion.php");
+                                        $query="SELECT CONCAT(Nombres, ' ', Apellido_Paterno, ' ', Apellido_Materno) AS 'Nombres_Alumno' 
+                                         FROM alumno 
+                                         WHERE ID_TT IS NULL";
+                                        $result=mysqli_query($conexion, $query) or die (mysqli_error());
+                                        while ($row=mysqli_fetch_array($result)){
+                                        echo '<option value="'.$row['Nombres_Alumno'].'">'.$row['Nombres_Alumno'].'</option>';
+                                        }
+                                    ?>
+                                </select>
+                            </div>   
+                            
+                            <label class="col-lg-4 col-sm-4 mt-3" for="alumno4">Alumno 4:</label>
+                            <div class="col-lg-8 col-sm-6 mt-3">
+                                <select class="form-control" name="alumno4" id="alumno4" required>
+                                    <option selected>Seleccionar</option>
+                                    <?php
+                                        include("PHP/conexion.php");
+                                        $query="SELECT CONCAT(Nombres, ' ', Apellido_Paterno, ' ', Apellido_Materno) AS 'Nombres_Alumno' 
+                                         FROM alumno 
+                                         WHERE ID_TT IS NULL";
+                                        $result=mysqli_query($conexion, $query) or die (mysqli_error());
+                                        while ($row=mysqli_fetch_array($result)){
+                                        echo '<option value="'.$row['Nombres_Alumno'].'">'.$row['Nombres_Alumno'].'</option>';
+                                        }
+                                    ?>
+                                </select>
+                            </div>                              
+
+                            <div class="row justify-content-center mt-4">
+                                <button type="button" id="sbtn_anterior" class="col-5 btn btn-primary ms-4">Anterior</button>
+                                <button type="button" id="sbtn_siguiente" class="col-5 btn btn-primary ms-2">Siguiente</button>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                    <div class="col-lg-5 col-md-7 col-sm-12 fields" id="tsection">
                         <fieldset class="row seccion">
                             <legend>Directores</legend>
 

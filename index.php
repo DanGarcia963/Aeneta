@@ -141,7 +141,7 @@
                         <a class="botones btnreg" href="form.html">Registrar Alumno</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones Solicitudes" href="Solicitudes.php">Administrar Solicitudes</a>
+                        <a class="botones Solicitudes" href="Solicitudes.php">Administrar Protocolos</a>
                         </div>
                 <?php
                     } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "SI"){
@@ -150,7 +150,7 @@
                             <a class="botones Solicitudes" href="GestionSolicitud.php">Visualizar Solicitud</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a id="btnPDF" class="botones btnpdf">Recuperar PDF</a>
+                            <a id="btnPDF" class="botones btnpdf">Generar PDF</a>
                         </div>
                         <script>
                             $(document).on('click', '#btnPDF', function () {
@@ -175,22 +175,22 @@
                             }
                         </script>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones Solicitudes" href="archivos.php">Adjuntar Archivos</a>
+                            <a class="botones Solicitudes" href="archivos.php">Adjuntar Archivo</a>
                         </div>
                 <?php
                     }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "NO" && $_SESSION["Time"] == "SI"){
                 ?>
                 <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones Solicitudes" href="RegistrarSolicitud.php">Registrar Solicitud</a>
+                        <a class="botones Solicitudes" href="RegistrarSolicitud.php">Registrar Protocolo</a>
                         </div>
                 <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones Solicitudes" href="RegistrarSolicitudExistente.php">Registrar Solicitud Existente</a>
+                        <a class="botones Solicitudes" href="RegistrarSolicitudExistente.php">Registrar a Protocolo Existente</a>
                         </div>
                 <?php
                     }else if($_SESSION["TT"] == "Director" && $_SESSION["usuario"] != "invitado"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones Solicitudes" href="Solicitudes.php">Aceptar protocolos</a>
+                            <a class="botones Solicitudes" href="Solicitudes.php">Visualizar Trabajos de Titulacion</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones Solicitudes" href="RevisarTT.php">Sinodal Trabajos Terminales</a>

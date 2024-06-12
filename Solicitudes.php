@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row titulo">   
                 <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/escom.png" alt="ESCOM" class="col-2">
-                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Panel de Solicitudes</h1></div>
+                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Solicitudes de Protocolos de Trabajo de Titulacion</h1></div>
                 <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/Logo.png" alt="IPN" class="col-2">
             </div>
             <div class="row fields">
@@ -32,8 +32,8 @@
                         <div class="col-lg-8 col-md-12 mt-2">
                                 <select class="form-control" name="opciones" id="opciones" required>
                                     <option selected>Seleccionar</option>
-                                    <option value="1">Solicitudes Rechazadas</option>
-                                    <option value="2">Solicitudes Aceptadas</option>
+                                    <option value="1">Protocolos Rechazadas</option>
+                                    <option value="2">Protocolos Aceptadas</option>
                                 </select>
                             </div>
                     </div>

@@ -4,13 +4,15 @@ window.onload = function () {
     const inputs = document.querySelectorAll('#formulario input');
     // Expresiones regulares
     const expresiones = {
-        nombreTT: /^[a-zA-ZÀ-ÿ\s]{1,100}$/,
-        descripcionTT: /^[a-zA-ZÀ-ÿ\s]{1,200}$/,
+        nombreTT: /^[a-zA-ZÀ-ÿ\s]{1,200}$/,
+        descripcionTT: /^[a-zA-ZÀ-ÿ\s]{1,2500}$/,
+        palabrasclave:/^[a-zA-ZÀ-ÿ\s]{1,50}$/,
     }
     // Lista para saber que todo se ha validado
     const campos = {
         nombreTT: false,
         descripcionTT: false,
+        palabrasclave: false,
     }
     // Funcion validar formulario
     // Que lleva el switch para validar según el campo
@@ -21,6 +23,9 @@ window.onload = function () {
             break;
             case "descripcionTT":
                 validardato(expresiones.descripcionTT, event.target, event.target.name);
+            break;
+            case "palabrasclave":
+                validardato(expresiones.palabrasclave, event.target, event.target.name);
             break;
         }
     };
@@ -36,7 +41,7 @@ window.onload = function () {
             document.getElementById(nombre).classList.remove('is-valid');
             campos[nombre] = false;
         }
-        console.log("Dato:", nombre ,", estado:",campos[nombre] ,"nombreTT:",campos.nombreTT, "descripcion:", campos.descripcionTT);
+        console.log("Dato:", nombre ,", estado:",campos[nombre] ,"nombreTT:",campos.nombreTT, "descripcion:", campos.descripcionTT,  "palabras:", campos.palabrasclave);
 };
     // No recuerdo porqué valdidamos fecha por separado pero creo que en el switch no me dejaba
     // O quizá solo fue experimento y así lo dejé
@@ -66,13 +71,17 @@ window.onload = function () {
         // El submit se desactiva hasta nuevo aviso
         event.preventDefault();
         const Area = document.getElementById('area');
+        const TipTit = document.getElementById('Tipo_Titulacion');
+        const alum2 = document.getElementById('alumno2');
+        const alum3 = document.getElementById('alumno3');
+        const alum4 = document.getElementById('alumno4');
         const dir1 = document.getElementById('director1');
         const dir2 = document.getElementById('director2');
 
 
         if(campos.nombreTT && campos.descripcionTT){
             // Si hay más de una checkbox palomeada
-           if((Area.value == "Seleccionar") || (dir1.value == "Seleccionar")|| (dir2.value == "Seleccionar")){
+            if((Area.value == "Seleccionar") || (TipTit.value == "Seleccionar") || (dir1.value == "Seleccionar")|| (dir2.value == "Seleccionar")){
                 alert("Faltan campos por llenar 2");
 
             }else{

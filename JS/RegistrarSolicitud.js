@@ -5,21 +5,27 @@ window.onload = function () {
     // Variables necesarias para cambiar de secciones
     const primera_seccion = document.getElementById('fsection');
     const segunda_seccion = document.getElementById('ssection');
+    const tercera_seccion = document.getElementById('tsection');
     // Displays iniciales
     primera_seccion.style.display = 'block';
     segunda_seccion.style.display = 'none';
+    tercera_seccion.style.display = 'none';
     // Botones de cada seccion
     const boton_primero = document.getElementById('fbtn');
+    const sboton_siguiente = document.getElementById('sbtn_siguiente');
+    const sboton_anterior = document.getElementById('sbtn_anterior');
     const tboton_anterior = document.getElementById('tbtn_anterior');
 
     const expresiones = {
-        nombreTT: /^[a-zA-ZÀ-ÿ\s]{1,100}$/,
-        descripcionTT: /^[a-zA-ZÀ-ÿ\s]{1,200}$/,
+        nombreTT: /^[a-zA-ZÀ-ÿ\s]{1,200}$/,
+        descripcionTT: /^[a-zA-ZÀ-ÿ\s]{1,2500}$/,
+        palabrasclave:/^[a-zA-ZÀ-ÿ\s]{1,50}$/,
     }
 
     const campos = {
         nombreTT: false,
         descripcionTT: false,
+        palabrasclave: false,
     }
 
     const validarFormulario = (event) => {
@@ -29,6 +35,9 @@ window.onload = function () {
             break;
             case "descripcionTT":
                 validardato(expresiones.descripcionTT, event.target, event.target.name);
+            break;
+            case "palabrasclave":
+                validardato(expresiones.palabrasclave, event.target, event.target.name);
             break;
         }
     };
@@ -43,7 +52,7 @@ window.onload = function () {
                 document.getElementById(nombre).classList.remove('is-valid');
                 campos[nombre] = false;
             }
-            console.log("Dato:", nombre ,", estado:",campos[nombre] ,"nombreTT:",campos.nombreTT, "descripcion:", campos.descripcionTT);
+            console.log("Dato:", nombre ,", estado:",campos[nombre] ,"nombreTT:",campos.nombreTT, "descripcion:", campos.descripcionTT,  "palabras:", campos.palabrasclave);
     };
 
     inputs.forEach((input) => {
@@ -57,7 +66,9 @@ window.onload = function () {
 
     boton_primero.addEventListener('click', function(event){
         event.preventDefault();
-        if(campos.nombreTT && campos.descripcionTT){
+        const AreaS = document.getElementById('area');
+        const TipTitS = document.getElementById('Tipo_Titulacion');
+        if(campos.nombreTT && campos.descripcionTT && (AreaS.value != "Seleccionar") && (TipTitS.value != "Seleccionar")){
             primera_seccion.style.display = 'none';
             segunda_seccion.style.display = 'block';
         }else{
@@ -65,10 +76,23 @@ window.onload = function () {
         }
     });
 
-    tboton_anterior.addEventListener('click', function(event){
+    sboton_anterior.addEventListener('click', function(event){
         event.preventDefault();
         primera_seccion.style.display = 'block';
-        segunda_seccion.style.display = 'none'; 
+        segunda_seccion.style.display = 'none';
+    });
+
+
+    sboton_siguiente.addEventListener('click', function(event){
+        event.preventDefault();
+        segunda_seccion.style.display = 'none';
+            tercera_seccion.style.display = 'block';
+    });
+
+    tboton_anterior.addEventListener('click', function(event){
+        event.preventDefault();
+        segunda_seccion.style.display = 'block';
+        tercera_seccion.style.display = 'none'; 
     });
 
 
@@ -86,12 +110,16 @@ window.onload = function () {
         // Quiero validar si las listas no se han dejado en "Select" porque claro, pasarán la validación
         // de expresión regular, pero no quiero que dejen sin seleccionar
         const Area = document.getElementById('area');
+        const TipTit = document.getElementById('Tipo_Titulacion');
+        const alum2 = document.getElementById('alumno2');
+        const alum3 = document.getElementById('alumno3');
+        const alum4 = document.getElementById('alumno4');
         const dir1 = document.getElementById('director1');
         const dir2 = document.getElementById('director2');
 
         if(campos.nombreTT && campos.descripcionTT){
             // Si hay más de una checkbox palomeada
-           if((Area.value == "Seleccionar") || (dir1.value == "Seleccionar")|| (dir2.value == "Seleccionar")){
+            if((Area.value == "Seleccionar") || (TipTit.value == "Seleccionar") || (dir1.value == "Seleccionar")|| (dir2.value == "Seleccionar")){
                 alert("Faltan campos por llenar 2");
 
             }else{
