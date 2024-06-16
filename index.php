@@ -134,11 +134,17 @@
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones btnreg" href="form.html">Registrarse</a>
                         </div>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <a class="botones btnreg" href="formProf.php">Registrarse Profesor</a>
+                        </div>
                 <?php
                     }if($_SESSION["usuario"] == "root"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones btnreg" href="form.html">Registrar Alumno</a>
+                        </div>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <a class="botones btnreg" href="formProf.php">Registrar Profesor</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones Solicitudes" href="Solicitudes.php">Administrar Protocolos</a>
