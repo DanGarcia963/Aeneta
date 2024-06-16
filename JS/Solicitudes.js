@@ -31,7 +31,7 @@ function listarTodas(){
                 template += `
                 <tr IdTT="${registro.ID_Terminal}">
                                 <th scope="row" class="align-middle editar_eliminar">                                   
-                                    <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>
+                                    <button class="btn btn-outline-primary visualizar"><i class="bi bi-download"></i></button>
                                     <button class="btn btn-outline-success aceptar"><i class="bi bi-check-circle "></i></button>
                                     <button class="btn btn-outline-danger rechazar"><i class="bi bi-x-circle"></i></button>
                                 </th>
@@ -63,7 +63,7 @@ function listarAceptados(){
                 template += `
                 <tr IdTT="${registro.ID_Terminal}">
                                 <th scope="row" class="align-middle editar_eliminar">  
-                                    <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>                                 
+                                    <button class="btn btn-outline-primary visualizar"><i class="bi bi-download"></i></button>                                 
                                     <button class="btn btn-outline-success compartir"><i class="bi bi-arrow-up-right-square"></i></button>
                                     </th>
                                 <td class="align-middle">${registro.TrabajoTerminal}</td>
@@ -94,7 +94,7 @@ function listarRechazados(){
                 template += `
                 <tr IdTT="${registro.ID_Terminal}">
                                 <th scope="row" class="align-middle editar_eliminar">                                   
-                                <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>                                 
+                                <button class="btn btn-outline-primary visualizar"><i class="bi bi-download"></i></button>                                 
                                 <button class="btn btn-outline-success compartir"><i class="bi bi-arrow-up-right-square"></i></button>
                                 </th>
                                 <td class="align-middle">${registro.TrabajoTerminal}</td>
@@ -173,12 +173,6 @@ $(document).on('click', '.rechazar', function () {
 });*/
 
 $(document).on('click', '.visualizar', function () {
-    $('#TablaRegistros').hide();
-    $('.add').hide();
-    $('#cancelar').show();
-    //$('#agregar').hide();
-    //$('#curp').prop('disabled', false);
-    $('.barra_buscar').hide();
     let element = $(this)[0].parentElement.parentElement;
     let IDTT = $(element).attr('IdTT');
     console.log('IDTT:', IDTT); // Verifica el valor de IDTT antes de enviarlo

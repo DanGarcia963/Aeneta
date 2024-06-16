@@ -180,9 +180,9 @@
                 <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones Solicitudes" href="RegistrarSolicitud.php">Registrar Protocolo</a>
                         </div>
-                <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                <!--<div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones Solicitudes" href="RegistrarSolicitudExistente.php">Registrar a Protocolo Existente</a>
-                        </div>
+                        </div>-->
                 <?php
                     }else if($_SESSION["TT"] == "Director" && $_SESSION["usuario"] != "invitado"){
                 ?>
