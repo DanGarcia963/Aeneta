@@ -34,6 +34,7 @@ $(document).ready(() => {
                                 <tr IdTT="${registro.ID_Terminal}">
                                     <th scope="row" class="align-middle editar_eliminar">
                                     <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>
+                                    <button class="btn btn-outline-primary descargar"><i class="bi bi-download"></i></button>
                                     </th>
                                     <td class="align-middle">${registro.TrabajoTerminal}</td>
                                     <td class="align-middle">${registro.NombresAlumnos}</td>
@@ -75,6 +76,30 @@ $(document).ready(() => {
             $('#area').prop('disabled', true);
     })
     });
+
+    $(document).on('click', '.descargar', function () {
+        let element = $(this)[0].parentElement.parentElement;
+        let IDTT = $(element).attr('IdTT');
+        console.log('IDTT:', IDTT); // Verifica el valor de IDTT antes de enviarlo
+        
+        // Enviar datos por POST y redirigir
+        fetch('recupera.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ IDTT: IDTT })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Verifica la respuesta del servidor
+            console.log('Response data:', data);
+            // Redirigir a recupera.php después de enviar los datos
+            window.location.href = 'recupera.php';
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
         // Evento change para el select
         $('#opciones').change(function() {
             // Obtener el valor seleccionado

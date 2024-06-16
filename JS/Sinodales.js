@@ -25,7 +25,7 @@ $(document).ready(() => {
                     template += `
                                 <tr IdTT="${registro.ID_Terminal}">
                                     <th scope="row" class="align-middle editar_eliminar">
-                                    <button class="btn btn-outline-primary visualizar"><i class="bi bi-book"></i></button>
+                                    <button class="btn btn-outline-primary descargar"><i class="bi bi-download"></i></button>
                                     <button class="btn btn-outline-success ElegirTT"><i class="bi bi-check-circle"></i></button>
                                     </th>
                                     <td class="align-middle">${registro.TrabajoTerminal}</td>
@@ -60,31 +60,27 @@ $(document).ready(() => {
             });
     })
 
-    $(document).on('click', '.visualizar', function () {
-        $('#TablaRegistros').hide();
-        $('.add').show();
-        $('#cancelar').show();
-        //$('#agregar').hide();
-        //$('#curp').prop('disabled', false);
-        $('.barra_buscar').hide();
+    $(document).on('click', '.descargar', function () {
         let element = $(this)[0].parentElement.parentElement;
         let IDTT = $(element).attr('IdTT');
-    
-        $.post('PHP/Sinodales.php', {IDTT}, function (response) {
-            let registro = JSON.parse(response);
-            $('#nombreTT').val(registro.TrabajoTerminal);
-            $('#descripcion').val(registro.Description);
-            $('#alumnos').val(registro.NombresAlumnos);
-            $('#directores').val(registro.NombresDirectores);
-            $('#TipoTitulacion').val(registro.TipoTitulacion);
-            $('#area').val(registro.AreaTT);
-            $('#nombreTT').prop('disabled', true);
-            $('#descripcion').prop('disabled', true);
-            $('#alumnos').prop('disabled', true);
-            $('#directores').prop('disabled', true);
-            $('#TipoTitulacion').prop('disabled', true);
-            $('#area').prop('disabled', true);
-    })
+        console.log('IDTT:', IDTT); // Verifica el valor de IDTT antes de enviarlo
+        
+        // Enviar datos por POST y redirigir
+        fetch('recupera.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ IDTT: IDTT })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Verifica la respuesta del servidor
+            console.log('Response data:', data);
+            // Redirigir a recupera.php después de enviar los datos
+            window.location.href = 'recupera.php';
+        })
+        .catch(error => console.error('Error:', error));
     });
 
 });
