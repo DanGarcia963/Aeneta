@@ -1,5 +1,5 @@
 body {
-    background-image: url(../img/escomplantel.jpg);
+    background-image: url(../img/fondo.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -43,6 +43,8 @@ body {
     color: white;
     display: block;
     width: auto;
+    box-shadow: 3px 3px 5px rgba(22, 22, 22, 0.673); /* Sombra del botón */
+    transition: box-shadow 0.3s ease; /* Animación suave */
     background-color: rgb(255, 255, 255, 0.3);
     border-radius: 10px;
     backdrop-filter: blur(3px);
@@ -52,7 +54,7 @@ body {
 }
 /* Estilos de botones individuales */
 .btnadm:hover, .btnpanel:hover, .Solicitudes:hover{
-    background-color:#800040;
+    background-color:#081645;
     cursor: pointer;
 }
 .btnsalir:hover{
@@ -60,7 +62,7 @@ body {
     cursor: pointer;
 }
 .btnreg:hover{
-    background-color:#0b7bea;
+    background-color:#04004f;
     cursor: pointer;
 }
 .btnpdf:hover{
@@ -127,4 +129,13 @@ label{
 #recuperation{
     bottom: 330px;
     color: #65B2C6;
+}
+
+#tam{
+    height: 20px;
+    width: 20px;
+}
+
+.tam1{
+    margin-left: 150px;
 }

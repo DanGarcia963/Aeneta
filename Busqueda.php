@@ -18,13 +18,8 @@
             <a href="index.php" style="width: 100%;"><h4 style="width: 100%;" class="col-12 inicio_texto">Inicio</h4></a>
         </div>
         <div class="container">
-            <div class="row titulo">   
-                <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/escom.png" alt="ESCOM" class="col-2">
-                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Panel de Busqueda</h1></div>
-                <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/Logo.png" alt="IPN" class="col-2">
-            </div>
             <div class="row fields">
-                <div class="row justify-content-center" id="administrador">Busqueda</div>
+                <div class="row justify-content-center" id="administrador">Panel de Busqueda</div>
                 <form class="row justify-content-center barra_buscar">                  
                                 <select class="row justify-content-center" name="opciones" id="opciones" required>
                                     <option selected>Seleccionar</option>

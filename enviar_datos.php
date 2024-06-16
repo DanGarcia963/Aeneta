@@ -25,7 +25,7 @@ if (!empty($_POST["nombre"])) {
         }
     } catch (mysqli_sql_exception $e) {
         if ($e->getCode() == 1062) {
-            echo "<script>alert('La CURP ya está registrada en el sistema. Por favor, ingresa una CURP diferente.');</script>";
+            echo "<script>alert('El CURP ya está registrada en el sistema. Por favor, ingresa una CURP diferente.');</script>";
         } else {
             echo "Ocurrió un error al guardar los datos.";
         }

@@ -11,7 +11,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Registro de Datos Profesor</title>
+        <title>Registro de Profesores</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
@@ -24,16 +24,11 @@
             <a href="index.php" style="width: 100%;"><h4 style="width: 100%;" class="col-12 inicio_texto">Inicio</h4></a>
         </div>
         <div class="container">
-            <div class="row titulo">   
-                <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/escom.png" alt="ESCOM" class="col-2">
-                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Registro de datos Generales para Profesores</h1></div>
-                <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/Logo.png" alt="IPN" class="col-2">
-            </div>
             <div class="row justify-content-center">
                 <form class="row formulario justify-content-center" id="formulario" method="post" action="modificarProfesor.php" novalidate>
                     <div class="col-lg-5 col-md-7 col-sm-12 fields" id="fsection">
                         <fieldset class="row justify-content-center seccion">
-                            <legend>Identidad Profesor</legend>
+                            <legend>Registro Profesor</legend>
 
                             <label class="col-lg-4 col-sm-10 mt-3" for="boleta">No. de boleta:</label>
                             <div class="col-lg-8 col-sm-10 mt-3">
@@ -86,7 +81,7 @@
                             </div>
 
                             <div class="row mt-3 justify-content-center">
-                                <input class="col-5 ms-4 btn btn-success" type="submit" value="Enviar">
+                                <input class="col-5 ms-4 btn btn-success " id="color" type="submit" value="Enviar">
                             </div>
 
                         </fieldset>

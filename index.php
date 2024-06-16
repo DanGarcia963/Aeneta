@@ -41,19 +41,13 @@
 </head>
 <body>
     <div class="container justify-content-center">
-
-        <div class="row justify-content-center present_card">
-            <img class="col-lg-2 col-md-4 col-sm-4 hdr_img" src="img/escom.png" alt="ESCOM">
-            <div class="col-lg-6 col-md-4 col-sm-4"></div>
-            <img class="col-lg-2 col-md-4 col-sm-4 hdr_img" src="img/Logo.png" alt="IPN">
-        </div>
-        <div class="row justify-content-center">
-            <h1 class="col-lg-8" id="bienvenido">Bienvenido
+        <div class="row justify-content-center " id="tam1" >
+            <h1 class="col-lg-8" id="bienvenido">
                 <?php
                     if($_SESSION["usuario"] == "root"){
                         echo "¡ <span id=\"letras_adm\">Administrador</span> !";
                     }else{
-                        echo "al Sistema de Gestion de Trabajos de Titulación 'Aeneta'";
+                        echo "Sistema de Gestion de Trabajos de Titulación 'Aeneta'";
                     }
                 ?>
             </h1>
@@ -132,10 +126,10 @@
                     }else if($_SESSION["usuario"] == "invitado"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones btnreg" href="form.html">Registrarse</a>
+                            <a class="botones btnreg" href="form.html">Registro Alumno</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones btnreg" href="formProf.php">Registrarse Profesor</a>
+                            <a class="botones btnreg" href="formProf.php">Registro Profesor</a>
                         </div>
                 <?php
                     }if($_SESSION["usuario"] == "root"){

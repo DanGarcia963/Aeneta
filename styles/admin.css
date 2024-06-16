@@ -1,5 +1,5 @@
 body{
-    background-image: url(../img/escomplantel.jpg);
+    background-color: #112b5770;
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(3px);
@@ -17,10 +17,11 @@ body{
     color: white;
     width: fit-content;
     text-align: center;
-    background-color: #0b7bea;
+    background-color: #00112a;
     text-shadow: 1px 1px 5px black;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 a:link{
@@ -28,7 +29,7 @@ a:link{
 }
 
 .inicio_texto:hover{
-    background-color: #800040;
+    background-color: #0a0168;
     cursor: pointer;
 }
 /* Estilos título e imágenes */
@@ -60,9 +61,11 @@ h1{
     }
 }
 .fields{
+    margin-top: 50px;
     background-color: rgb(255, 255, 255, 0.3);
     border-radius: 10px;
     height: auto;
+    width: auto;
     padding: 4%;
     backdrop-filter: blur(2px);
     margin-bottom: 15%;
@@ -80,12 +83,12 @@ h1{
 }
 
 #administrador{
-    color:#0b7bea;
+    color:#000b23;
     font-size: 40px;
     text-align: center;
     height: 50px;
     margin-bottom: 3%;
-    text-shadow: 1px 1px 30px white;
+    text-shadow: 1px 1px 30px rgba(1, 1, 39, 0.585);
 }
 
 .barra_buscar{
@@ -158,4 +161,8 @@ label{
     padding: 3%;
     backdrop-filter: blur(2px);
     margin-bottom: 3%;
+}
+
+#tam1{
+    margin-left: 50px;
 }

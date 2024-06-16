@@ -1,5 +1,5 @@
 body{
-    background-image:url(../img/escomplantel.jpg);
+    background-image:url(../img/fondo.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -23,10 +23,11 @@ body{
     color: white;
     width: fit-content;
     text-align: center;
-    background-color: #0b7bea;
+    background-color: #00112a;
     text-shadow: 1px 1px 5px black;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 a:link{
@@ -34,7 +35,7 @@ a:link{
 }
 
 .inicio_texto:hover{
-    background-color: #800040;
+    background-color: #0a0168;
     cursor: pointer;
 }
 /**/
@@ -53,10 +54,10 @@ h1{
     background-color: rgb(255, 255, 255, 0.3);
     border-radius: 10px;
     height: 650px;
-    padding: 4%;
+    padding: 30px 75px 30px 75px;
     backdrop-filter: blur(100px);
     margin-bottom: 15%;
-    /*box-shadow: 1px 1px 5px black;*/
+    box-sizing: border-box; /* Incluye padding y borde dentro de las dimensiones */
 }
 /* Media query para el título con los logos */
 @media only screen and (max-width: 992px){
@@ -102,7 +103,7 @@ h1{
 }
 
 legend{
-    color:#0b7bea;
+    color:#001327;
     font-size: 40px;
     text-align: center;
     margin-bottom: 20px;
@@ -144,4 +145,9 @@ label{
 
 .correcto::placeholder{
     color: rgb(59, 59, 59);
+}
+
+#color{
+    background-color: #00112a;
+    box-shadow: #00112a;
 }
