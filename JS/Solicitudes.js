@@ -145,7 +145,7 @@ $(document).on('click', '.rechazar', function () {
         });
 })
 
-$(document).on('click', '.visualizar', function () {
+/*$(document).on('click', '.visualizar', function () {
     $('#TablaRegistros').hide();
     $('.add').show();
     $('#cancelar').show();
@@ -154,7 +154,7 @@ $(document).on('click', '.visualizar', function () {
     $('.barra_buscar').hide();
     let element = $(this)[0].parentElement.parentElement;
     let IDTT = $(element).attr('IdTT');
-
+    console.log(IDTT);
     $.post('PHP/Visualizar.php', {IDTT}, function (response) {
         let registro = JSON.parse(response);
         $('#nombreTT').val(registro.TrabajoTerminal);
@@ -170,6 +170,35 @@ $(document).on('click', '.visualizar', function () {
         $('#TipoTitulacion').prop('disabled', true);
         $('#area').prop('disabled', true);
 })
+});*/
+
+$(document).on('click', '.visualizar', function () {
+    $('#TablaRegistros').hide();
+    $('.add').hide();
+    $('#cancelar').show();
+    //$('#agregar').hide();
+    //$('#curp').prop('disabled', false);
+    $('.barra_buscar').hide();
+    let element = $(this)[0].parentElement.parentElement;
+    let IDTT = $(element).attr('IdTT');
+    console.log('IDTT:', IDTT); // Verifica el valor de IDTT antes de enviarlo
+    
+    // Enviar datos por POST y redirigir
+    fetch('recupera.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ IDTT: IDTT })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Verifica la respuesta del servidor
+        console.log('Response data:', data);
+        // Redirigir a recupera.php después de enviar los datos
+        window.location.href = 'recupera.php';
+    })
+    .catch(error => console.error('Error:', error));
 });
  
 $('#opciones').change(function() {

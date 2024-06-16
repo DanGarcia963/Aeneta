@@ -128,9 +128,6 @@
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones btnreg" href="form.html">Registro Alumno</a>
                         </div>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones btnreg" href="formProf.php">Registro Profesor</a>
-                        </div>
                 <?php
                     }if($_SESSION["usuario"] == "root"){
                 ?>

@@ -1,15 +1,38 @@
 <?php
-    include ("PHP/conexion.php");//Se llama archivo donde se ha hecho la conexion
-    session_start();
-    if(!isset($_SESSION["ID_TT"])){
-        header("Location: lost.html");
-    } 
-    else{
-        require('fpdf/fpdf.php');
+include("PHP/conexion.php"); // Se llama archivo donde se ha hecho la conexion
+session_start();
+
+// Verifica si IDTT está en la solicitud POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $input = file_get_contents('php://input');
+    $data = json_decode($input, true);
+    
+    if (isset($data['IDTT'])) {
+        // Guarda IDTT en la sesión
+        $_SESSION["ID_TT"] = $data['IDTT'];
+        // Devuelve una respuesta para depuración
+        echo json_encode(["status" => "success", "IDTT" => $data['IDTT']]);
+    } else {
+        // Devuelve un error si IDTT no está presente
+        echo json_encode(["status" => "error", "message" => "IDTT not found in POST data"]);
+    }
+    exit();
+}
+
+// Verifica si IDTT está en la sesión, si no redirige a lost.html
+if (!isset($_SESSION["ID_TT"])) {
+    header("Location: lost.html");
+    exit();
+}
+else{
 
 
+require('fpdf/fpdf.php');
+$ID_TT = $_SESSION["ID_TT"];
+// Usa ID_TT de la sesión
 
-        $ID_TT = $_SESSION["ID_TT"];
+//
+
 
         $query_buscar = "SELECT 
         mt.ID_TT AS 'ID_Trabajo_Terminal',
