@@ -29,7 +29,7 @@ body {
 /* HTML: <div class="loader"></div> */
 .loader {
     font-weight: bold;
-    font-family: monospace;
+    font-family: monospace ; 
     font-size: 35px;
     line-height: 1.2em;
     display: inline-grid;
