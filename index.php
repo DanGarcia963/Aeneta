@@ -187,7 +187,10 @@
                     }else if($_SESSION["TT"] == "Director" && $_SESSION["usuario"] != "invitado"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones Solicitudes" href="Solicitudes.php">Visualizar Trabajos de Titulacion</a>
+                            <a class="botones Solicitudes" href="TrabajosTerminalesSinodales.php">Visualizar Trabajos de Titulacion Sinodales</a>
+                        </div>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <a class="botones Solicitudes" href="TrabajosTerminalesProfesores.php">Visualizar Trabajos de Titulacion Directores</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones Solicitudes" href="RevisarTT.php">Sinodal Trabajos Terminales</a>
