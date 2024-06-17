@@ -41,13 +41,13 @@
 </head>
 <body>
     <div class="container justify-content-center">
-        <div class="row justify-content-center " id="tam1" >
+        <div class="row justify-content-center tamanio" id="tam1" >
             <h1 class="col-lg-8" id="bienvenido">
                 <?php
                     if($_SESSION["usuario"] == "root"){
                         echo "¡ <span id=\"letras_adm\">Administrador</span> !";
                     }else{
-                        echo "Sistema de Gestion de Trabajos de Titulación 'Aeneta'";
+                        echo "<div class=\"loader\"></div>";
                     }
                 ?>
             </h1>
