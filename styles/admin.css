@@ -1,10 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Sedan+SC&display=swap');
+
 body{
-    background-color: #112b5770;
+    background-color: #011a47;
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(3px);
     background-attachment: fixed;
 }
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: fit-content;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 30px;
+    color: #0000;
+    background: linear-gradient(90deg,#000048 calc(50% + 0.5ch),#000 0) right/calc(200% + 1ch) 100%;
+    -webkit-background-clip: text;
+            background-clip: text;
+    animation: l7 4s infinite steps(11);
+    align-items: center;
+  }
+  @keyframes l7 {to{background-position: left}}
+
 /* Estilos barra */
 .inicio{
     display: flex;
@@ -61,8 +80,12 @@ h1{
     }
 }
 .fields{
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(1, 11, 69, 0.953), 
+    0 4px 6px rgba(1, 11, 69, 0.953);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.823);
     margin-top: 50px;
-    background-color: rgb(255, 255, 255, 0.3);
     border-radius: 10px;
     height: auto;
     width: auto;
@@ -70,6 +93,12 @@ h1{
     backdrop-filter: blur(2px);
     margin-bottom: 15%;
     /*box-shadow: 1px 1px 5px black;*/
+}
+
+.fields:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px rgba(248, 245, 245, 0.15), 
+                0 10px 10px rgba(249, 248, 248, 0.1);
 }
 
 #prom_valid{
