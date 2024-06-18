@@ -28,7 +28,7 @@
                 <form class="row formulario justify-content-center" id="formulario" method="post" action="modificarProfesor.php" novalidate>
                     <div class="col-lg-5 col-md-7 col-sm-12 fields" id="fsection">
                         <fieldset class="row justify-content-center seccion">
-                            <legend>Registro Profesor</legend>
+                            <div class="loader"><legend>Registro Profesor</legend></div>
 
                             <label class="col-lg-4 col-sm-10 mt-3" for="boleta">No. de boleta:</label>
                             <div class="col-lg-8 col-sm-10 mt-3">
