@@ -46,7 +46,7 @@
                 <div class="col">
                 <?php
                     if($_SESSION["usuario"] == "root"){
-                        echo "¡ <span id=\"letras_adm\">Administrador</span> !";
+                        echo "¡ <span id=\"letras_adm\"></span> !";
                     }else{
                         echo "<div class=\"loader\"></div>";
                     }
@@ -56,6 +56,7 @@
         </div>
         <div class="row buttons justify-content-center">
             <div class="row col-8 justify-content-center">
+<<<<<<< HEAD
             <?php
                 if($_SESSION["usuario"] == "root")
                 {
@@ -121,9 +122,13 @@
                             <span>Panel de Busqueda</span>
                             </a>
                         </div>
+=======
+>>>>>>> 590bd307b644769a66d46c03604d8e6d92513369
                 <?php
-                    if($_SESSION["usuario"] == "invitado"){
+                    if($_SESSION["usuario"] == "root")
+                    {
                 ?>
+<<<<<<< HEAD
                     <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones " id="adminbtn">
                         <svg width="277" height="62">
@@ -192,50 +197,381 @@
                                 // Cuando se hace clic en el botón, primero llamamos a la función listar()
                                 listar();
                             });
+=======
 
-                            function listar() {
-                                $.ajax({
-                                    url: 'PHP/BuscarIDTT_Alumno.php',
-                                    type: 'GET',
-                                    success: function (response) {
-                                        // Una vez que la llamada AJAX ha tenido éxito, aquí es donde queremos hacer la redirección
-                                        console.log("La llamada AJAX ha terminado");
-                                        window.location.href = 'recupera.php';
-                                    },
-                                    error: function (xhr, status, error) {
-                                        // Si hay algún error en la llamada AJAX, lo manejamos aquí
-                                        console.error("Error en la llamada AJAX:", error);
-                                    }
-                                });
-                            }
-                        </script>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones" href="archivos.php">Adjuntar Archivo</a>
-                        </div>
                 <?php
-                    }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "NO" && $_SESSION["Time"] == "SI"){
-                ?>
-                <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones" href="RegistrarSolicitud.php">Registrar Protocolo</a>
+                    $verified = (isset($_SESSION["Time"]));
+                    //echo "<script>console.log('$verified');</script>";
+                    $verified1 = (isset($_SESSION["Time"]) && $_SESSION["Time"] == "NO");
+                    //echo "<script>console.log('$verified1');</script>";
+                    if ($_SESSION["Time"] == "SI") {
+                ?>                                 
+                        <div class="contenedor col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <div class="msg col col-lg-3 col-md-4 col-sm-12 mt-3">Desactivar Envio de Protocolos</div>
+                            <label class="switch">
+                                <input type="checkbox" class="input" value="<?php $_SESSION["Time"] = "SI"; ?>" checked>
+                                <div class="rail">
+                                    <span class="circle"></span>
+                                </div>
+                                <span class="indicator"></span>
+                            </label>
+                            <form method="post" action="">
+                                    <input type="hidden" name="changeTime" value="false">
+                                    <button class="boton" type="submit">Confirmar</button>
+                            </form>
                         </div>
-                <!--<div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones Solicitudes" href="RegistrarSolicitudExistente.php">Registrar a Protocolo Existente</a>
-                        </div>-->
+                <?php                                
+                    }else if ($_SESSION["Time"] == "NO"){
+                ?> 
+                        <div class="contenedor col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class="msg col col-lg-3 col-md-4 col-sm-12 mt-3">Activar Envio de Protocolos</div>
+                                <label class="switch">
+                                    <input type="checkbox" class="input" value="<?php $_SESSION["Time"] = "NO"; ?>">
+                                    <div class="rail">
+                                        <span class="circle"></span>
+                                    </div>
+                                    <span class="indicator"></span>
+                                </label>
+                                <form method="post" action="">
+                                    <input type="hidden" name="changeTime" value="true">
+                                    <button class="boton" type="submit">Confirmar</button>
+                                </form>
+                            </div>
                 <?php
-                    }else if($_SESSION["TT"] == "Director" && $_SESSION["usuario"] != "invitado"){
+                    }                        
                 ?>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones" href="TrabajosTerminalesSinodales.php">Visualizar Trabajos de Titulacion Sinodales</a>
-                        </div>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones" href="TrabajosTerminalesProfesores.php">Visualizar Trabajos de Titulacion Directores</a>
-                        </div>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones" href="RevisarTT.php">Sinodal Trabajos Terminales</a>
-                        </div>
+
                 <?php
                     }
                 ?>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="Busqueda.php">
+                                    <svg width="277" height="62">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Panel de Busqueda</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>    
+                    <?php
+                        if($_SESSION["usuario"] == "invitado"){
+                    ?>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones " id="adminbtn">
+                                    <svg width="277" height="62">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Iniciar Sesión</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+                    <?php
+                        }
+                    ?>
+    
+                    <?php
+                        if($_SESSION["usuario"] != "invitado"){
+                    ?>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones btnsalir">
+                                    <svg width="277" height="62">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Cerrar Sesión</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+                    <?php
+                        }else if($_SESSION["usuario"] == "invitado"){
+                    ?>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="form.html">
+                                    <svg width="277" height="62">
+                                    <defs>
+                                        <linearGradient id="grad1">
+                                            <stop offset="0%" stop-color="#FF8282"/>
+                                            <stop offset="100%" stop-color="#E178ED" />
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Registro Alumno</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+                    <?php
+                        }if($_SESSION["usuario"] == "root"){
+                    ?>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="form.html">
+                                    <svg width="277" height="124">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                    <!--<span>Voir mes réalisations</span>-->
+                                    <span>Registrar Alumno</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+>>>>>>> 590bd307b644769a66d46c03604d8e6d92513369
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="formProf.php">
+                                    <svg width="277" height="124">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                    <!--<span>Voir mes réalisations</span>-->
+                                        <span>Registrar Profesor</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="row">                
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="Solicitudes.php">
+                                    <svg width="277" height="124">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                    <!--<span>Voir mes réalisations</span>-->
+                                    <span>Administrar Protocolos</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                        } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "SI"){
+                    ?>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="GestionSolicitud.php">
+                                <svg width="277" height="62">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Visualizar Solicitud</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a id="btnPDF" class="botones">
+                                <svg width="277" height="62">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Generar PDF</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+                    <script>
+                                $(document).on('click', '#btnPDF', function () {
+                                    // Cuando se hace clic en el botón, primero llamamos a la función listar()
+                                    listar();
+                                });
+
+                                function listar() {
+                                    $.ajax({
+                                        url: 'PHP/BuscarIDTT_Alumno.php',
+                                        type: 'GET',
+                                        success: function (response) {
+                                            // Una vez que la llamada AJAX ha tenido éxito, aquí es donde queremos hacer la redirección
+                                            console.log("La llamada AJAX ha terminado");
+                                            window.location.href = 'recupera.php';
+                                        },
+                                        error: function (xhr, status, error) {
+                                            // Si hay algún error en la llamada AJAX, lo manejamos aquí
+                                            console.error("Error en la llamada AJAX:", error);
+                                        }
+                                    });
+                                }
+                    </script>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="archivos.php">
+                                <svg width="277" height="62">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Adjuntar Archivo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <?php
+                        }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "NO" && $_SESSION["Time"] == "SI"){
+                    ?>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="RegistrarSolicitud.php">
+                                    <svg width="277" height="62">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Registrar Protocolo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                        }else if($_SESSION["TT"] == "Director" && $_SESSION["usuario"] != "invitado"){
+                    ?>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="TrabajosTerminalesSinodales.php">
+                                <svg width="277" height="62">
+                                    <defs>
+                                        <linearGradient id="grad1">
+                                            <stop offset="0%" stop-color="#FF8282"/>
+                                            <stop offset="100%" stop-color="#E178ED" />
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Visualizar TT Sinodales</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="TrabajosTerminalesProfesores.php">
+                                <svg width="277" height="124">
+                                    <defs>
+                                        <linearGradient id="grad1">
+                                            <stop offset="0%" stop-color="#FF8282"/>
+                                            <stop offset="100%" stop-color="#E178ED" />
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Visualizar TT Directores</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="RevisarTT.php">
+                                <svg width="277" height="62">
+                                    <defs>
+                                        <linearGradient id="grad1">
+                                            <stop offset="0%" stop-color="#FF8282"/>
+                                            <stop offset="100%" stop-color="#E178ED" />
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                <!--<span>Voir mes réalisations</span>-->
+                                    <span>Sinodalismo TT</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                        }
+                    ?>
             </div>
         </div>
 

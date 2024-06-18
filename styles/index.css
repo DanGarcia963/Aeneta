@@ -16,10 +16,36 @@ body {
     text-shadow: 1px 1px 5px black;
     text-align: center;
 }
-#letras_adm{
+/*#letras_adm{
     color: #800040;
     text-shadow: 1px 1px 3px white;
-}
+}*/
+
+/* HTML: <div class="loader"></div> */
+#letras_adm {
+    font-weight: bold;
+    font-family: monospace ; 
+    font-size: 35px;
+    line-height: 1.2em;
+    display: inline-grid;
+    /*background-color: #e6a900;*/
+  }
+  #letras_adm:before,
+  #letras_adm:after {
+    content:"ADMINISTRADOR";
+    grid-area: 1/1;
+    -webkit-mask: linear-gradient(90deg,#000 50%,#0000 0) 0 50%/2ch 100%;
+    color: #800040;
+    text-shadow: 0 0 0 #FFF,0 calc(var(--s,1)*1.2em) 0 #FFF;
+    animation: l15 2s infinite;
+  }
+  #letras_adm:after {
+    -webkit-mask-position: 1ch 50%;
+    --s:-1;
+  }
+  @keyframes l15 {80%,100%{text-shadow:0 calc(var(--s,1)*-1.2em)  0 #000,0 0 0 #000}}
+
+
 /* Media para imagenes porque si no quedan feas */
 @media only screen and (max-width: 992px){
     .hdr_img{
@@ -32,6 +58,7 @@ body {
     --c:#001038;
     width: fit-content;
     font-weight: bold;
+<<<<<<< HEAD
     font-family: monospace;
     font-size: 20px;
     color: #efebeb00;
@@ -41,6 +68,22 @@ body {
   }
   .loader:before {
     content:"Sistema de Gestion de Trabajos de Titulacion  "
+=======
+    font-family: monospace ; 
+    font-size: 35px;
+    line-height: 1.2em;
+    display: inline-grid;
+    /*background-color: #e6a900;*/
+  }
+  .loader:before,
+  .loader:after {
+    content:"Sistema de Gestion de Trabajos de Titulación";
+    grid-area: 1/1;
+    -webkit-mask: linear-gradient(90deg,#000 50%,#0000 0) 0 50%/2ch 100%;
+    color: #FFFF;
+    text-shadow: 0 0 0 #FFF,0 calc(var(--s,1)*1.2em) 0 #FFF;
+    animation: l15 2s infinite;
+>>>>>>> 590bd307b644769a66d46c03604d8e6d92513369
   }
   @keyframes l15 {to{text-shadow:-15ch 0 var(--c),15ch 0 var(--c)}}
 
