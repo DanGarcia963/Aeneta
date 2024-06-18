@@ -105,13 +105,37 @@
                 }
             ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones btnpanel" href="Busqueda.php">Panel de Busqueda</a>
+                            <a class="botones" href="Busqueda.php">
+                            <svg width="277" height="62">
+                            <defs>
+                                <linearGradient id="grad1">
+                                    <stop offset="0%" stop-color="#FF8282"/>
+                                    <stop offset="100%" stop-color="#E178ED" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                        </svg>
+                        <!--<span>Voir mes réalisations</span>-->
+                            <span>Panel de Busqueda</span>
+                            </a>
                         </div>
                 <?php
                     if($_SESSION["usuario"] == "invitado"){
                 ?>
                     <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones btnadm" id="adminbtn">Iniciar Sesión</a>
+                        <a class="botones " id="adminbtn">
+                        <svg width="277" height="62">
+                            <defs>
+                                <linearGradient id="grad1">
+                                    <stop offset="0%" stop-color="#FF8282"/>
+                                    <stop offset="100%" stop-color="#E178ED" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                        </svg>
+                        <!--<span>Voir mes réalisations</span>-->
+                            <span>Iniciar Sesión</span>
+                        </a>
                     </div>
                 <?php
                     }
@@ -120,34 +144,46 @@
                     if($_SESSION["usuario"] != "invitado"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones btnsalir">Cerrar Sesión</a>
+                            <a class="botones">Cerrar Sesión</a>
                         </div>
                 <?php
                     }else if($_SESSION["usuario"] == "invitado"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones btnreg" href="form.html">Registro Alumno</a>
+                            <a class="botones" href="form.html">
+                                <svg width="277" height="62">
+                                <defs>
+                                    <linearGradient id="grad1">
+                                        <stop offset="0%" stop-color="#FF8282"/>
+                                        <stop offset="100%" stop-color="#E178ED" />
+                                    </linearGradient>
+                                </defs>
+                                <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                </svg>
+                            <!--<span>Voir mes réalisations</span>-->
+                                <span>Registro Alumno</span>
+                            </a>
                         </div>
                 <?php
                     }if($_SESSION["usuario"] == "root"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones btnreg" href="form.html">Registrar Alumno</a>
+                        <a class="botones" href="form.html">Registrar Alumno</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones btnreg" href="formProf.php">Registrar Profesor</a>
+                        <a class="botones" href="formProf.php">Registrar Profesor</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones Solicitudes" href="Solicitudes.php">Administrar Protocolos</a>
+                        <a class="botones" href="Solicitudes.php">Administrar Protocolos</a>
                         </div>
                 <?php
                     } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "SI"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones Solicitudes" href="GestionSolicitud.php">Visualizar Solicitud</a>
+                            <a class="botones" href="GestionSolicitud.php">Visualizar Solicitud</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a id="btnPDF" class="botones btnpdf">Generar PDF</a>
+                            <a id="btnPDF" class="botones">Generar PDF</a>
                         </div>
                         <script>
                             $(document).on('click', '#btnPDF', function () {
@@ -172,13 +208,13 @@
                             }
                         </script>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones Solicitudes" href="archivos.php">Adjuntar Archivo</a>
+                            <a class="botones" href="archivos.php">Adjuntar Archivo</a>
                         </div>
                 <?php
                     }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "NO" && $_SESSION["Time"] == "SI"){
                 ?>
                 <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones Solicitudes" href="RegistrarSolicitud.php">Registrar Protocolo</a>
+                        <a class="botones" href="RegistrarSolicitud.php">Registrar Protocolo</a>
                         </div>
                 <!--<div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones Solicitudes" href="RegistrarSolicitudExistente.php">Registrar a Protocolo Existente</a>
@@ -187,13 +223,13 @@
                     }else if($_SESSION["TT"] == "Director" && $_SESSION["usuario"] != "invitado"){
                 ?>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones Solicitudes" href="TrabajosTerminalesSinodales.php">Visualizar Trabajos de Titulacion Sinodales</a>
+                            <a class="botones" href="TrabajosTerminalesSinodales.php">Visualizar Trabajos de Titulacion Sinodales</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones Solicitudes" href="TrabajosTerminalesProfesores.php">Visualizar Trabajos de Titulacion Directores</a>
+                            <a class="botones" href="TrabajosTerminalesProfesores.php">Visualizar Trabajos de Titulacion Directores</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones Solicitudes" href="RevisarTT.php">Sinodal Trabajos Terminales</a>
+                            <a class="botones" href="RevisarTT.php">Sinodal Trabajos Terminales</a>
                         </div>
                 <?php
                     }

@@ -62,43 +62,57 @@ body {
     margin-top: 7%;
     margin-bottom: 30%;
 }
-/* Estilos de botones generales */
-.botones{
-    color: white;
-    display: block;
-    width: auto;
-    box-shadow: 3px 3px 5px rgba(22, 22, 22, 0.673); /* Sombra del botón */
-    transition: box-shadow 0.3s ease; /* Animación suave */
-    background-color: rgb(255, 255, 255, 0.3);
-    border-radius: 10px;
-    backdrop-filter: blur(3px);
-    padding: 10%;
+
+.botones {
+    margin-top: calc(50% + 25px);
+    position: relative;
+    display: inline-block;
+    width: 277px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 60px;
     text-align: center;
-    text-shadow: 1px 1px 5px black;
-}
-/* Estilos de botones individuales */
-.btnadm:hover, .btnpanel:hover, .Solicitudes:hover{
-    background-color:#081645;
+    text-transform: uppercase;
+    background-color: transparent;
     cursor: pointer;
+    text-decoration:none;
+    font-family: 'Roboto', sans-serif;
+    font-weight:900;
+    font-size:17px;
+    letter-spacing: 0.045em;
 }
-.btnsalir:hover{
-    background-color:#e6a900;
-    cursor: pointer;
+
+.botones svg {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
-.btnreg:hover{
-    background-color:#04004f;
-    cursor: pointer;
+
+.botones svg rect {
+    stroke: #EC0033;
+    stroke-width: 4;
+    stroke-dasharray: 353, 0;
+    stroke-dashoffset: 0;
+    -webkit-transition: all 600ms ease;
+    transition: all 600ms ease;
 }
-.btnpdf:hover{
-    background-color:#4b4b4b;
-    cursor: pointer;
+
+.botones span{
+  background: rgb(255,130,130);
+  background: -moz-linear-gradient(left,  rgba(255,130,130,1) 0%, rgba(225,120,237,1) 100%);
+  background: -webkit-linear-gradient(left,  rgba(255,130,130,1) 0%,rgba(225,120,237,1) 100%);
+  background: linear-gradient(to right,  rgba(255,130,130,1) 0%,rgba(225,120,237,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8282', endColorstr='#e178ed',GradientType=1 );
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-/* Quitar estilos a los links */
-a{
-    text-decoration: none;
-}
-a:link{
-    text-decoration: none;
+
+.botones:hover svg rect {
+    stroke-width: 4;
+    stroke-dasharray: 196, 543;
+    stroke-dashoffset: 437;
 }
 
 .login{
