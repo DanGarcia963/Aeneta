@@ -42,7 +42,8 @@
 <body>
     <div class="container justify-content-center">
         <div class="row justify-content-center tamanio" id="tam1" >
-            <h1 class="col-lg-8" id="bienvenido">
+            <h1 class="col-lg-8 letra" id="bienvenido"> A E N E T A
+                <div class="col">
                 <?php
                     if($_SESSION["usuario"] == "root"){
                         echo "¡ <span id=\"letras_adm\">Administrador</span> !";
@@ -50,6 +51,7 @@
                         echo "<div class=\"loader\"></div>";
                     }
                 ?>
+                </div>
             </h1>
         </div>
         <div class="row buttons justify-content-center">
@@ -104,7 +106,7 @@
             <?php
                 }
             ?>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones" href="Busqueda.php">
                             <svg width="277" height="62">
                             <defs>
@@ -113,7 +115,7 @@
                                     <stop offset="100%" stop-color="#E178ED" />
                                 </linearGradient>
                             </defs>
-                            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="200" height="50"></rect>
                         </svg>
                         <!--<span>Voir mes réalisations</span>-->
                             <span>Panel de Busqueda</span>
@@ -122,7 +124,7 @@
                 <?php
                     if($_SESSION["usuario"] == "invitado"){
                 ?>
-                    <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                    <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones " id="adminbtn">
                         <svg width="277" height="62">
                             <defs>
@@ -131,7 +133,7 @@
                                     <stop offset="100%" stop-color="#E178ED" />
                                 </linearGradient>
                             </defs>
-                            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="200" height="50"></rect>
                         </svg>
                         <!--<span>Voir mes réalisations</span>-->
                             <span>Iniciar Sesión</span>
@@ -143,13 +145,13 @@
                 <?php
                     if($_SESSION["usuario"] != "invitado"){
                 ?>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones">Cerrar Sesión</a>
                         </div>
                 <?php
                     }else if($_SESSION["usuario"] == "invitado"){
                 ?>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                             <a class="botones" href="form.html">
                                 <svg width="277" height="62">
                                 <defs>
@@ -158,7 +160,7 @@
                                         <stop offset="100%" stop-color="#E178ED" />
                                     </linearGradient>
                                 </defs>
-                                <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="200" height="50"></rect>
                                 </svg>
                             <!--<span>Voir mes réalisations</span>-->
                                 <span>Registro Alumno</span>
@@ -167,10 +169,10 @@
                 <?php
                     }if($_SESSION["usuario"] == "root"){
                 ?>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones" href="form.html">Registrar Alumno</a>
                         </div>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                         <a class="botones" href="formProf.php">Registrar Profesor</a>
                         </div>
                         <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
 body {
     background-image: url(../img/fondo.png);
     background-repeat: no-repeat;
@@ -26,36 +28,21 @@ body {
     }
 }
 
-/* HTML: <div class="loader"></div> */
 .loader {
+    --c:#001038;
+    width: fit-content;
     font-weight: bold;
-    font-family: monospace ; 
-    font-size: 35px;
-    line-height: 1.2em;
-    display: inline-grid;
-    background-color: #e6a900;
+    font-family: monospace;
+    font-size: 20px;
+    color: #efebeb00;
+    overflow: hidden;
+    text-shadow: 0 0 var(--c),10ch 0 var(--c);
+    animation: l15 6s infinite linear;
   }
-  .loader:before,
-  .loader:after {
-    content:"Sistema de Gestion de Trabajos de Titulación";
-    grid-area: 1/1;
-    -webkit-mask: linear-gradient(90deg,#000 50%,#0000 0) 0 50%/2ch 100%;
-    color: #0000;
-    text-shadow: 0 0 0 #000,0 calc(var(--s,1)*1.2em) 0 #000;
-    animation: l15 1s infinite;
+  .loader:before {
+    content:"Sistema de Gestion de Trabajos de Titulacion  "
   }
-  .loader:after {
-    -webkit-mask-position: 1ch 50%;
-    --s:-1;
-  }
-  @keyframes l15 {80%,100%{text-shadow:0 calc(var(--s,1)*-1.2em)  0 #000,0 0 0 #000}}
-
-/* Media para el texto de admin que no queda con Bootstrap */
-@media only screen and (max-width: 576px) and (min-width: 516px)  {
-    #adminbtn{
-        font-size: 0.7rem;
-    }
-}
+  @keyframes l15 {to{text-shadow:-15ch 0 var(--c),15ch 0 var(--c)}}
 
 /* Solo el div de los botones */
 .buttons{
@@ -69,17 +56,12 @@ body {
     display: inline-block;
     width: 277px;
     height: 50px;
-    font-size: 1em;
-    font-weight: bold;
     line-height: 60px;
     text-align: center;
-    text-transform: uppercase;
     background-color: transparent;
     cursor: pointer;
     text-decoration:none;
     font-family: 'Roboto', sans-serif;
-    font-weight:900;
-    font-size:17px;
     letter-spacing: 0.045em;
 }
 
@@ -90,7 +72,7 @@ body {
 }
 
 .botones svg rect {
-    stroke: #EC0033;
+    stroke: #f0eff3;
     stroke-width: 4;
     stroke-dasharray: 353, 0;
     stroke-dashoffset: 0;
@@ -99,10 +81,10 @@ body {
 }
 
 .botones span{
-  background: rgb(255,130,130);
-  background: -moz-linear-gradient(left,  rgba(255,130,130,1) 0%, rgba(225,120,237,1) 100%);
-  background: -webkit-linear-gradient(left,  rgba(255,130,130,1) 0%,rgba(225,120,237,1) 100%);
-  background: linear-gradient(to right,  rgba(255,130,130,1) 0%,rgba(225,120,237,1) 100%);
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(left,  rgb(239, 239, 244) 0%, rgb(246, 246, 250) 100%);
+  background: -webkit-linear-gradient(left,  rgb(245, 246, 249) 0%,rgb(246, 246, 250    ) 100%);
+  background: linear-gradient(to right,  rgb(224, 224, 236) 0%,rgb(4, 34, 114) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8282', endColorstr='#e178ed',GradientType=1 );
   
   -webkit-background-clip: text;
@@ -113,6 +95,12 @@ body {
     stroke-width: 4;
     stroke-dasharray: 196, 543;
     stroke-dashoffset: 437;
+}
+
+a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login{
@@ -177,11 +165,24 @@ label{
 #tam1{
     display: flex;
     align-items: auto;
-    margin-top: 25%;
-
+    margin-top: 100px;
+    width: 100%;
 }
 
 .tamanio {
     display: flex;
     align-items: auto;
+}
+
+.loader, .letra{
+font-family: "Cinzel", serif;
+font-size: 35px;
+margin-top: 15px;
+}
+
+.col{
+    background-color: rgba(255, 255, 255, 0.829);
+    border-radius: 20px;
+    padding: 3px;
+    margin-top: 10px;
 }
