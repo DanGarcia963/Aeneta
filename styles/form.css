@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Sedan+SC&display=swap');
 body{
     background-image:url(../img/fondo.png);
     background-repeat: no-repeat;
@@ -10,10 +11,10 @@ body{
 
 .loader {
     color:#00112a;
-    width: fit-content;
-    font-weight: bold;
-    font-family: sans-serif;
-    font-size: 30px;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 20px;
     padding-bottom: 8px;
     background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
     animation: l2 4s linear infinite;
