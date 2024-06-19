@@ -122,7 +122,7 @@
                             </a>
                         </div>
                 <?php
-                    if($_SESSION["usuario"] == "root")
+                    if($_SESSION["usuario"] == "invitado")
                     {
                 ?>
                     <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
@@ -147,7 +147,7 @@
                     if($_SESSION["usuario"] != "invitado"){
                 ?>
                         <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones">Cerrar Sesión</a>
+                            <a class="botones btnsalir">Cerrar Sesión</a>
                         </div>
                 <?php
                     }else if($_SESSION["usuario"] == "invitado"){
@@ -170,29 +170,25 @@
                 <?php
                     }if($_SESSION["usuario"] == "root"){
                 ?>
-                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones" href="form.html">Registrar Alumno</a>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                                <a class="botones" href="form.php">
+                                    <svg width="277" height="124">
+                                        <defs>
+                                            <linearGradient id="grad1">
+                                                <stop offset="0%" stop-color="#FF8282"/>
+                                                <stop offset="100%" stop-color="#E178ED" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                                    </svg>
+                                    <!--<span>Voir mes réalisations</span>-->
+                                        <span>Registrar Alumno</span>
+                                </a>
+                            </div>
                         </div>
-                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones" href="formProf.php">Registrar Profesor</a>
-                        </div>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones" href="Solicitudes.php">Administrar Protocolos</a>
-                        </div>
-                <?php
-                    } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "SI"){
-                ?>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones" href="GestionSolicitud.php">Visualizar Solicitud</a>
-                        </div>
-                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a id="btnPDF" class="botones">Generar PDF</a>
-                        </div>
-                        <script>
-                            $(document).on('click', '#btnPDF', function () {
-                                // Cuando se hace clic en el botón, primero llamamos a la función listar()
-                                listar();
-                            });
+                    </div>
 
                     <div class="container">
                         <div class="row">
