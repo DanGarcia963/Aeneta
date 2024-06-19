@@ -172,7 +172,7 @@
                 ?>
                     <div class="container">
                         <div class="row">
-                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                                 <a class="botones" href="form.php">
                                     <svg width="277" height="124">
                                         <defs>
@@ -192,7 +192,7 @@
 
                     <div class="container">
                         <div class="row">
-                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                                 <a class="botones" href="formProf.php">
                                     <svg width="277" height="124">
                                         <defs>
@@ -212,7 +212,7 @@
 
                     <div class="container">
                         <div class="row">                
-                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                                 <a class="botones" href="Solicitudes.php">
                                     <svg width="277" height="124">
                                         <defs>
@@ -235,7 +235,7 @@
                     ?>
                     <div class="container">
                         <div class="row">
-                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class="col-lg-3 col-md-4 col-sm-12 mt-3">
                                 <a class="botones" href="GestionSolicitud.php">
                                 <svg width="277" height="62">
                                         <defs>
@@ -255,7 +255,7 @@
 
                     <div class="container">
                         <div class="row">
-                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                                 <a id="btnPDF" class="botones">
                                 <svg width="277" height="62">
                                         <defs>
@@ -297,7 +297,7 @@
 
                     <div class="container">
                         <div class="row">
-                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                                 <a class="botones" href="archivos.php">
                                 <svg width="277" height="62">
                                         <defs>
@@ -320,7 +320,7 @@
                     ?>
                     <div class="container">
                         <div class="row">
-                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                                 <a class="botones" href="RegistrarSolicitud.php">
                                     <svg width="277" height="62">
                                         <defs>
@@ -344,7 +344,7 @@
 
                     <div class="container">
                         <div class="row">
-                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                                 <a class="botones" href="TrabajosTerminalesSinodales.php">
                                 <svg width="277" height="62">
                                     <defs>
@@ -364,7 +364,7 @@
 
                     <div class="container">
                         <div class="row">
-                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                                 <a class="botones" href="TrabajosTerminalesProfesores.php">
                                 <svg width="277" height="124">
                                     <defs>
@@ -384,7 +384,7 @@
 
                     <div class="container">
                         <div class="row">
-                            <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
                                 <a class="botones" href="RevisarTT.php">
                                 <svg width="277" height="62">
                                     <defs>

@@ -22,7 +22,7 @@
         </div>
         <div class="container">
             <div class="row fields">
-                <div class="row justify-content-center" id="administrador">Seleccionar Trabajos Terminales</div>
+                <div class="row justify-content-center loader1" id="administrador">Seleccionar Trabajos Terminales</div>
                 <div class="row justify-content-center">
                     <button type="button" class="col col-6 mb-5 btn btn-danger" name="cancelar" id="cancelar">
                         <i class="bi bi-x-lg mx-2"></i> Cancelar
