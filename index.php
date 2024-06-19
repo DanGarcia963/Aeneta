@@ -170,6 +170,30 @@
                 <?php
                     }if($_SESSION["usuario"] == "root"){
                 ?>
+                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <a class="botones" href="form.html">Registrar Alumno</a>
+                        </div>
+                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <a class="botones" href="formProf.php">Registrar Profesor</a>
+                        </div>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                        <a class="botones" href="Solicitudes.php">Administrar Protocolos</a>
+                        </div>
+                <?php
+                    } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "SI"){
+                ?>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <a class="botones" href="GestionSolicitud.php">Visualizar Solicitud</a>
+                        </div>
+                        <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
+                            <a id="btnPDF" class="botones">Generar PDF</a>
+                        </div>
+                        <script>
+                            $(document).on('click', '#btnPDF', function () {
+                                // Cuando se hace clic en el botón, primero llamamos a la función listar()
+                                listar();
+                            });
+                ?>
                     <div class="container">
                         <div class="row">
                             <div class="col col-lg-3 col-md-4 col-sm-12 mt-3">
