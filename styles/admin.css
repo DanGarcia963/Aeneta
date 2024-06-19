@@ -85,7 +85,7 @@ h1{
     0 4px 6px rgba(1, 11, 69, 0.953);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-color: rgba(255, 255, 255, 0.823);
-    margin-top: 50px;
+    margin-top: 25px;
     border-radius: 10px;
     height: auto;
     width: auto;
@@ -198,15 +198,20 @@ label{
 
 /* HTML: <div class="loader"></div> */
 .loader {
+    display: flex;
+    align-items: center;
+    background-color: #4b1401;
     width: fit-content;
     font-weight: bold;
     font-family: monospace;
-    font-size: 30px;
+    font-size: 40px;
     background: radial-gradient(circle closest-side,#080031 94%,#0000) right/calc(200% - 1em) 100%;
-    animation: l24 1s infinite alternate linear;
+    animation: l24 5s infinite alternate linear;
   }
   .loader::before {
-    align-items: center;
+    text-align: center;
+    position: absolute;
+    display: block;
     content: "Panel de Busqueda";
     line-height: 1em;
     color: #0000;
@@ -219,3 +224,8 @@ label{
   @keyframes l24{
     100%{background-position: left}
   }
+
+.alinear{
+    width: 100%;
+    padding-bottom: 15px;
+}
