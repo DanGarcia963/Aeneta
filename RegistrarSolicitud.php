@@ -24,7 +24,7 @@
             <a href="index.php" style="width: 100%;"><h4 style="width: 100%;" class="col-12 inicio_texto">Inicio</h4></a>
         </div>
         <div class="container">
-                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center loader1"><h1>Registro de Protocolo de Trabajo de Titulacion</h1></div>
+                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center loader1">Registro de Protocolo de Trabajo de Titulacion</div>
             <div class="row justify-content-center">
                 <form class="row formulario justify-content-center" id="formulario" method="post" action="modificarSolicitud.php" novalidate>
                     <div class="col-lg-5 col-md-7 col-sm-12 fields" id="fsection">
@@ -76,7 +76,7 @@
                                 </select>
                             </div>
 
-                            <button type="button" id="fbtn" class="col-6 btn btn-primary">Siguiente</button>
+                            <button type="button" id="fbtn" class="col-6 btn btn-primary esp">Siguiente</button>
 
                         </fieldset>
                     </div>
@@ -137,8 +137,8 @@
                             </div>                              
 
                             <div class="row justify-content-center mt-4">
-                                <button type="button" id="sbtn_anterior" class="col-5 btn btn-primary ms-4">Anterior</button>
-                                <button type="button" id="sbtn_siguiente" class="col-5 btn btn-primary ms-2">Siguiente</button>
+                                <button type="button" id="sbtn_anterior" class="col-5 btn btn-primary ms-4 esp">Anterior</button>
+                                <button type="button" id="sbtn_siguiente" class="col-5 btn btn-primary ms-2 esp">Siguiente</button>
                             </div>
 
                         </fieldset>
@@ -206,8 +206,8 @@
                             </div>                                   
 
                             <div class="row mt-3 justify-content-center">
-                                <button class="col-5 ms-4 btn btn-primary" id="tbtn_anterior" type="button">Anterior</button>
-                                <input class="col-5 ms-4 btn btn-success" type="submit" value="Enviar">
+                                <button class="col-5 ms-4 btn btn-primary esp" id="tbtn_anterior" type="button">Anterior</button>
+                                <input class="col-5 ms-4 btn btn-success esp" type="submit" value="Enviar">
                             </div>
 
                         </fieldset>

@@ -21,13 +21,8 @@
             <a href="index.php" style="width: 100%;"><h4 style="width: 100%;" class="col-12 inicio_texto">Inicio</h4></a>
         </div>
         <div class="container">
-            <div class="row titulo">   
-                <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/escom.png" alt="ESCOM" class="col-2">
-                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center"><h1>Adjuntar Archivo Final</h1></div>
-                <img class="col-lg-2 col-md-3 col-sm-2 hdr_img" src="img/Logo.png" alt="IPN" class="col-2">
-            </div>
             <div class="row fields">
-                <div class="row  justify-content-center" id="administrador">Archivos</div>
+                <div class="row  justify-content-center loader1" id="administrador">Adjuntar Archivo Final</div>
                     <form enctype="multipart/form-data" class="row justify-content-center" method="post" action="PHP/insertarArchivo.php">
                     <input class="col-lg-8 col-md-12 mt-2 contenido" type="file" name="archivo" size="30" accept=".pdf,.sql,.js,.php,.zip" required onchange="validateFileType(this)">
                     <input class="col-lg-8 col-md-12 mt-2 contenido botones btn btn-primary" type="submit" id="submit" name="submit" value="Subir archivo">
