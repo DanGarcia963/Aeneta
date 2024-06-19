@@ -195,3 +195,27 @@ label{
 #tam1{
     margin-left: 50px;
 }
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    background: radial-gradient(circle closest-side,#080031 94%,#0000) right/calc(200% - 1em) 100%;
+    animation: l24 1s infinite alternate linear;
+  }
+  .loader::before {
+    align-items: center;
+    content: "Panel de Busqueda";
+    line-height: 1em;
+    color: #0000;
+    background: inherit;
+    background-image: radial-gradient(circle closest-side,#fff 94%,#05003c);
+    -webkit-background-clip:text;
+            background-clip:text;
+  }
+  
+  @keyframes l24{
+    100%{background-position: left}
+  }
