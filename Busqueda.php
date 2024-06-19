@@ -19,7 +19,7 @@
         </div>
         <div class="container">
             <div class="row fields">
-                <div class="loader alinear">Panel de Busqueda </div> 
+                <div class="loader">Panel de Busqueda </div> 
                 <form class="row justify-content-center barra_buscar">                  
                                 <select class="row justify-content-center" name="opciones" id="opciones" required>
                                     <option selected>Seleccionar</option>

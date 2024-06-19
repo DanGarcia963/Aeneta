@@ -15,11 +15,10 @@ body{
     font-family: "Cinzel", serif;
     font-optical-sizing: auto;
     font-style: normal;
-    font-size: 20px;
     background: linear-gradient(90deg,#000048 calc(50% + 0.5ch),#000 0) right/calc(200% + 1ch) 100%;
     -webkit-background-clip: text;
             background-clip: text;
-    animation: l7 4s infinite steps(11);
+    animation: l7 5s infinite steps(11);
     align-items: center;
   }
   @keyframes l7 {to{background-position: left}}
@@ -231,7 +230,7 @@ label{
 
 /* HTML: <div class="loader"></div> */
 .loader1 {
-    color: rgb(240, 248, 255);
+    color: rgb(0, 24, 45);
     width: 100%;
     font-family: "Cinzel", serif;
     font-optical-sizing: auto;
@@ -255,3 +254,8 @@ label{
   width: auto;
   height: auto;
 }   
+
+.esp1{
+    margin-bottom: 3px;
+    text-align: center;
+}

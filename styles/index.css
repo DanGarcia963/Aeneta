@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Sedan+SC&display=swap');
+
 body {
     background-image: url(../img/fondo.png);
     background-repeat: no-repeat;
@@ -30,10 +31,10 @@ body {
 
 .loader {
     --c:#001038;
-    width: fit-content;
-    font-weight: bold;
-    font-family: monospace;
-    font-size: 20px;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 30px;
     color: #efebeb00;
     overflow: hidden;
     text-shadow: 0 0 var(--c),10ch 0 var(--c);
@@ -172,6 +173,7 @@ label{
 .tamanio {
     display: flex;
     align-items: auto;
+    width: 100%;
 }
 
 .loader, .letra{

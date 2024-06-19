@@ -48,7 +48,7 @@
                     if($_SESSION["usuario"] == "root"){
                         echo "¡ <span id=\"letras_adm\"></span> !";
                     }else{
-                        echo "<div class=\"loader\"></div>";
+                        echo "<div class=\"loader tamanio\"></div>";
                     }
                 ?>
                 </div>

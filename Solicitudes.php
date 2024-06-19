@@ -22,8 +22,8 @@
         </div>
         <div class="container">
             <div class="row fields">
-                <div class="loader">Solicitudes de Protocolos de Trabajo de Titulacion</div>
-                <div class="row justify-content-center loader" id="administrador"></div>
+                <div class="loader1 esp1">Solicitudes de Protocolos de Trabajo de Titulacion</div>
+                <div class="row justify-content-center " id="administrador"></div>
                     <div class="form-inline justify-content-center barra_buscar">
                         <div class="col-lg-8 col-md-12 mt-2">
                                 <select class="form-control" name="opciones" id="opciones" required>
