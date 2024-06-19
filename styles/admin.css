@@ -229,3 +229,16 @@ label{
     width: 100%;
     padding-bottom: 15px;
 }
+
+/* HTML: <div class="loader"></div> */
+.loader1 {
+    width: fit-content;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 30px;
+    padding-bottom: 8px;
+    background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
+    animation: l2 2s linear infinite;
+  }
+  @keyframes l2 {to{background-size: 100% 3px}}
