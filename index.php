@@ -173,7 +173,7 @@
                     <div class="container">
                         <div class="row">
                             <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
-                                <a class="botones" href="form.php">
+                                <a class="botones" href="form.html">
                                     <svg width="277" height="124">
                                         <defs>
                                             <linearGradient id="grad1">
