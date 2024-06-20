@@ -106,8 +106,8 @@
             <?php
                 }
             ?>
-                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones" href="Busqueda.php">
+                        <div class=" col-lg-3 col-md-4 col-sm-12 mt-3 ">
+                            <a class="botones alinea" href="Busqueda.php">
                             <svg width="277" height="62">
                             <defs>
                                 <linearGradient id="grad1">
@@ -126,7 +126,7 @@
                     {
                 ?>
                     <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
-                        <a class="botones " id="adminbtn">
+                        <a class="botones alinea" id="adminbtn">
                         <svg width="277" height="62">
                             <defs>
                                 <linearGradient id="grad1">
@@ -147,13 +147,13 @@
                     if($_SESSION["usuario"] != "invitado"){
                 ?>
                         <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones btnsalir">Cerrar Sesión</a>
+                            <a class="botones btnsalir" id="botonS" id="der">Cerrar Sesión</a>
                         </div>
                 <?php
                     }else if($_SESSION["usuario"] == "invitado"){
                 ?>
                         <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
-                            <a class="botones" href="form.html">
+                            <a class="botones alinea" href="form.html">
                                 <svg width="277" height="62">
                                 <defs>
                                     <linearGradient id="grad1">

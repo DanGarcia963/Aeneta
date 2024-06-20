@@ -24,7 +24,7 @@
             <a href="index.php" style="width: 100%;"><h4 style="width: 100%;" class="col-12 inicio_texto">Inicio</h4></a>
         </div>
         <div class="container">
-                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center loader1">Registro de Protocolo de Trabajo de Titulacion</div>
+                <div class="col-lg-8 col-md-6 col-sm-8 hdr justify-content-center loader1" id="color">Registro de Protocolo de Trabajo de Titulacion</div>
             <div class="row justify-content-center">
                 <form class="row formulario justify-content-center" id="formulario" method="post" action="modificarSolicitud.php" novalidate>
                     <div class="col-lg-5 col-md-7 col-sm-12 fields" id="fsection">

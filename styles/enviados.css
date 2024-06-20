@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Sedan+SC&display=swap');
+
 body{
-    background-image: url(../img/escomplantel.jpg);
+    background-image: url(../img/fondo.png);
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(3px);
@@ -21,7 +23,7 @@ body{
     color: white;
     width: fit-content;
     text-align: center;
-    background-color: #0b7bea;
+    background-color: #00022e;
     text-shadow: 1px 1px 5px black;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -32,7 +34,7 @@ a:link{
 }
 
 .inicio_texto:hover{
-    background-color: #800040;
+    background-color: #110150;
     cursor: pointer;
 }
 #img_reg{
@@ -40,7 +42,7 @@ a:link{
 }
 
 .recuadro{
-    background-color: rgb(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.947);
     /*
     background-image: url(../img/sign_up.png);
     background-repeat: no-repeat;
@@ -55,8 +57,12 @@ a:link{
 }
 
 .letras{
-    color:rgb(255, 255, 255);
-    text-shadow: 1px 1px 5px black;
+    --c:#001038;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 30px;
+    text-shadow: 1px 1px 5px rgba(0, 17, 51, 0.633);
 }
 
 #seg_recuadro{
@@ -80,4 +86,6 @@ a:link{
 
 #generar{
     margin-top: 30px;
+    background-color: #000459;
+    color: azure;
 }

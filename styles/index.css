@@ -28,22 +28,23 @@ body {
         width: 30%;
     }
 }
-
 .loader {
-    --c:#001038;
+    width: fit-content;
+    font-weight: bold;
     font-family: "Cinzel", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
     font-size: 30px;
-    color: #efebeb00;
+    color :#0000;
     overflow: hidden;
-    text-shadow: 0 0 var(--c),10ch 0 var(--c);
-    animation: l15 6s infinite linear;
+    animation: l9 4s infinite cubic-bezier(0.3,1,0,1);
   }
   .loader:before {
-    content:"Sistema de Gestion de Trabajos de Titulacion  "
+    content:"Sistema de Gestion de Trabajos de Titulacion"
   }
-  @keyframes l15 {to{text-shadow:-15ch 0 var(--c),15ch 0 var(--c)}}
+  @keyframes l9 {
+    0%  {text-shadow: 0    0 #ffffff, 11ch 0 #00009700, 22ch 0 #00009700, 33ch 0 #09002d00,44ch 0 #ffffff}
+    25% {text-shadow:-11ch 0 #ffffff,  0ch 0 #00009700, 11ch 0 #00009700, 22ch 0 #09002d00,33ch 0 #ffffff}
+    100%{text-shadow:-44ch 0 #ffffff,-33ch 0 #00009700,-22ch 0 #00009700,-11ch 0 #09002d00, 0ch 0 #ffffff}
+  }
 
 /* Solo el div de los botones */
 .buttons{
@@ -52,6 +53,7 @@ body {
 }
 
 .botones {
+    position: absolute;
     margin-top: calc(50% + 25px);
     position: relative;
     display: inline-block;
@@ -59,12 +61,10 @@ body {
     height: 50px;
     line-height: 60px;
     text-align: center;
-    background-color: transparent;
     cursor: pointer;
     text-decoration:none;
     font-family: 'Roboto', sans-serif;
-    letter-spacing: 0.045em;
-}
+    letter-spacing: 0.045em;}
 
 .botones svg {
     position: absolute;
@@ -74,7 +74,7 @@ body {
 
 .botones svg rect {
     stroke: #f0eff3;
-    stroke-width: 4;
+    stroke-width: 2;
     stroke-dasharray: 353, 0;
     stroke-dashoffset: 0;
     -webkit-transition: all 600ms ease;
@@ -83,9 +83,9 @@ body {
 
 .botones span{
   background: rgb(255, 255, 255);
-  background: -moz-linear-gradient(left,  rgb(239, 239, 244) 0%, rgb(246, 246, 250) 100%);
-  background: -webkit-linear-gradient(left,  rgb(245, 246, 249) 0%,rgb(246, 246, 250    ) 100%);
-  background: linear-gradient(to right,  rgb(224, 224, 236) 0%,rgb(4, 34, 114) 100%);
+  background: -moz-linear-gradient(left,  rgb(247, 247, 249) 0%, rgb(244, 244, 247) 100%);
+  background: -webkit-linear-gradient(left,  rgb(249, 249, 249) 0%,rgb(1, 1, 118) 100%);
+  background: linear-gradient(to right,  rgb(241, 241, 246) 0%,rgb(4, 34, 114) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8282', endColorstr='#e178ed',GradientType=1 );
   
   -webkit-background-clip: text;
@@ -183,18 +183,49 @@ margin-top: 15px;
 }
 
 .col{
-    background-color: rgba(255, 255, 255, 0.829);
+    background-color: rgba(0, 0, 62, 0.267);
     border-radius: 20px;
     padding: 3px;
     margin-top: 10px;
     width: 100%;
+    color: #f0eff374;
 }
 
 .alinear{
     margin-top: 15px;
-    background-color: #800040;
     display: flex;
     justify-content: center; /* Alinea los elementos al centro horizontalmente */
     align-items: center; 
-    padding: 15px;
+}
+
+#botonS{
+    margin-left: 15px;
+    background-color: rgba(255, 255, 255, 0.288);
+    border-radius: 45px;
+    color: #020042;
+}
+
+.alinea{
+    padding: 5px;
+    position: relative;
+    background-color: rgba(7, 1, 39, 0.566);
+    border-radius: 45px;
+    width: 200px;
+    height: 50px;
+    line-height: 60px;
+}
+
+#izq{
+    position: absolute;
+    margin-top: 70%;
+    left: 20%; /* Ajusta la posición horizontal */
+}
+
+#der{
+    position: absolute;
+    margin-top: 70%;
+    right: 50%; /* Ajusta la posición horizontal */
+    background-color: #f0eff31f;
+    border-radius: 45px;
+    width: auto;
 }
