@@ -343,7 +343,7 @@
                     <?php
                         }else if($_SESSION["TT"] == "Director" && $_SESSION["usuario"] != "invitado"){
                     ?>
-
+                    <div class="alinear">
                     <div class="container">
                         <div class="row">
                             <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
@@ -403,7 +403,7 @@
                             </div>
                         </div>
                     </div>
-
+                    </div>
                     <?php
                         }
                     ?>
