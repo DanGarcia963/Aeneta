@@ -189,3 +189,12 @@ margin-top: 15px;
     margin-top: 10px;
     width: 100%;
 }
+
+.alinear{
+    margin-top: 15px;
+    background-color: #800040;
+    display: flex;
+    justify-content: center; /* Alinea los elementos al centro horizontalmente */
+    align-items: center; 
+    padding: 15px;
+}

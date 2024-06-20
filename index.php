@@ -116,8 +116,8 @@
                                 </linearGradient>
                             </defs>
                             <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="200" height="50"></rect>
-                        </svg>
-                        <!--<span>Voir mes réalisations</span>-->
+                            </svg>
+                            <!--<span>Voir mes réalisations</span>-->
                             <span>Panel de Busqueda</span>
                             </a>
                         </div>
@@ -170,6 +170,7 @@
                 <?php
                     }if($_SESSION["usuario"] == "root"){
                 ?>
+                    <div class="alinear">
                     <div class="container">
                         <div class="row">
                             <div class=" col-lg-3 col-md-4 col-sm-12 mt-3">
@@ -229,10 +230,11 @@
                             </div>
                         </div>
                     </div>
-
+                    </div>
                     <?php
                         } else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "SI"){
                     ?>
+                    <div class="alinear">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-sm-12 mt-3">
@@ -314,7 +316,7 @@
                             </div>
                         </div>
                     </div> 
-
+                            </div>
                     <?php
                         }else if($_SESSION["usuario"] != "root" && $_SESSION["usuario"] != "invitado" && $_SESSION["TT"] == "NO" && $_SESSION["Time"] == "SI"){
                     ?>
